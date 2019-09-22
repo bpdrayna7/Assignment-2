@@ -5,4 +5,5 @@ public class Customer {
 	private String type;
 	private Address address;
 	private String name;
+	private String a;
 }
