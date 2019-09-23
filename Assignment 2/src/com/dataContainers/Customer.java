@@ -3,7 +3,7 @@ package com.dataContainers;
 public class Customer {
 	private String customerCode;
 	private String type;
-	private Address address;
+	private Person primaryContact;
 	private String name;
-	private String a;
+	private Address address;
 }
