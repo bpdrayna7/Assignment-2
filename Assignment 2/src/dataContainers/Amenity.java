@@ -1,4 +1,4 @@
-package com.dataContainers;
+package dataContainers;
 
 public class Amenity extends Product {
 

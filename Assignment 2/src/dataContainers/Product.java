@@ -1,4 +1,4 @@
-package com.dataContainers;
+package dataContainers;
 
 public abstract class Product {
 

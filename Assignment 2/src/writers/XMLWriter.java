@@ -1,11 +1,13 @@
-package writer;
+package writers;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import com.dataContainers.Person;
+
 import com.thoughtworks.xstream.XStream;
+
+import dataContainers.Person;
 
 public class XMLWriter {
 

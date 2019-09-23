@@ -1,4 +1,4 @@
-package com.dataContainers;
+package dataContainers;
 
 import java.util.ArrayList;
 
