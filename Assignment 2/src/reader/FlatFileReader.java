@@ -16,7 +16,7 @@ public class FlatFileReader {
 		
 		Scanner scan = null;
 		try {
-			scan = new Scanner(new FileReader("Persons.dat"));
+			scan = new Scanner(new FileReader("data/Persons.dat"));
 			scan.nextLine();
 			
 			ArrayList<Person> people = new ArrayList<Person>();
@@ -26,20 +26,30 @@ public class FlatFileReader {
 				String[] attributes = line.split(";");
 				
 				String personCode = attributes[0];
-				String firstName = attributes[1].split(", ")[0];
-				String lastName = attributes[1].split("; ")[1];
+				String[] name = attributes[1].split(",");
+				String firstName = name[1];
+				String lastName = name[0];
 				String[] ad = attributes[2].split(",");
 				
 				Address address = new Address(ad[0], ad[1], ad[2], ad[3], ad[4]);
-				Person p = new Person(personCode, firstName, lastName, address);
 				
+				
+				ArrayList<String> emails = new ArrayList<>();
 				if(attributes.length == 4) {
-					String[] emails = attributes[3].split(", ");
-					for(String e : emails) {
-						p.addEmail(e);
+					String[] emailAddresses = attributes[3].split(",");
+					for(String e : emailAddresses) {
+						emails.add(e);
 					}
 				}
-				people.add(p);
+				
+				if(emails.isEmpty()) {
+					Person p = new Person(personCode, firstName, lastName, address);
+					people.add(p);
+				}
+				else {
+					Person p = new Person(personCode, firstName, lastName, address, emails);
+					people.add(p);
+				}
 				
 			}
 			scan.close();

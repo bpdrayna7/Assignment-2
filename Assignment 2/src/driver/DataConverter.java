@@ -22,9 +22,9 @@ public class DataConverter {
 		
 		//Writes each ArrayList into a separate XML file
 		XMLFileWriter xmlWriter = new XMLFileWriter();
-		xmlWriter.xmlConverter(people, "data/Persons.xml", "person");
-//		xmlWriter.xmlConverter(customers, "data/Customers.xml", "customer");
-//		xmlWriter.xmlConverter(products, "data/Products.xml", "product");
+		xmlWriter.xmlConverter(people, "data/Persons.xml", "person", Person.class);
+//		xmlWriter.xmlConverter(customers, "data/Customers.xml", "customer", Customer.class);
+//		xmlWriter.xmlConverter(products, "data/Products.xml", "product", Product.class);
 		
 	}
 

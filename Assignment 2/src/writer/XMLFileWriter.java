@@ -11,7 +11,7 @@ import com.thoughtworks.xstream.XStream;
 
 public class XMLFileWriter {
 
-	public <T> void xmlConverter(ArrayList<T> objects, String fileName, String alias) {
+	public <T> void xmlConverter(ArrayList<T> objects, String fileName, String alias, Class c) {
 		
 		XStream xstream = new XStream();
 		File xmlFile = new File(fileName);
@@ -24,7 +24,7 @@ public class XMLFileWriter {
 			e.printStackTrace();
 		}
 		
-		xstream.alias(alias, objects.getClass());
+		xstream.alias(alias, c);
 		
 		xmlPrinter.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
 		for(T obj : objects) {

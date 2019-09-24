@@ -9,15 +9,24 @@ public class Person {
 	private Address address;
 	private ArrayList<String> emails;
 	
+	public Person(String personCode, String firstName, String lastName, Address address, ArrayList<String> emails) {
+		super();
+		this.personCode = personCode;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.emails = emails;
+	}
+
 	public Person(String personCode, String firstName, String lastName, Address address) {
 		super();
 		this.personCode = personCode;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
-		emails = new ArrayList<String>();
 	}
-
+	
+	
 	public String getPersonCode() {
 		return personCode;
 	}
