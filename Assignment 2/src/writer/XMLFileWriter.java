@@ -1,4 +1,4 @@
-package writers;
+package writer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,14 +7,14 @@ import java.util.ArrayList;
 
 import com.thoughtworks.xstream.XStream;
 
-import dataContainers.Person;
+import entities.Person;
 
-public class XMLWriter {
+public class XMLFileWriter {
 
-	public void xmlConverter(ArrayList<Person> people) {
+	public void xmlConverter(ArrayList<Object> objects, String fileName, String alias) {
 		
 		XStream xstream = new XStream();
-		File xmlFile = new File("data/Persons.xml");
+		File xmlFile = new File(fileName);
 		PrintWriter xmlPrinter = null;
 		
 		try {
@@ -24,11 +24,11 @@ public class XMLWriter {
 			e.printStackTrace();
 		}
 		
-		xstream.alias("person", Person.class);
+		xstream.alias(alias, objects.getClass());
 		
 		xmlPrinter.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
-		for(Person p : people) {
-			xmlPrinter.write(xstream.toXML(p));
+		for(Object obj : objects) {
+			xmlPrinter.write(xstream.toXML(obj));
 		}
 		xmlPrinter.close();
 		

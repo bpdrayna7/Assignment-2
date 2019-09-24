@@ -1,4 +1,4 @@
-package writers;
+package writer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import dataContainers.Person;
+import entities.Person;
 
-public class JsonWriter {
+public class JsonFileWriter {
 	public void JsonConverter(ArrayList<Person> persons) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		File jsonOutput = new File("data/Persons.json");

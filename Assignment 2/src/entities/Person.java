@@ -1,4 +1,4 @@
-package dataContainers;
+package entities;
 
 import java.util.ArrayList;
 

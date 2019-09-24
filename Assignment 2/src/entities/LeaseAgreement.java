@@ -1,4 +1,4 @@
-package dataContainers;
+package entities;
 
 import org.joda.time.DateTime;
 

@@ -1,4 +1,4 @@
-package dataContainers;
+package entities;
 
 public abstract class Product {
 
