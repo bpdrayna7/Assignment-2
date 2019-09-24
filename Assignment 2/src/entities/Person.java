@@ -7,23 +7,15 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private Address address;
-	private ArrayList<String> email;
+	private ArrayList<String> emails;
 	
-	public Person(String personCode, String firstName, String lastName, Address address, ArrayList<String> email) {
-		super();
-		this.personCode = personCode;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.email = email;
-	}
-
 	public Person(String personCode, String firstName, String lastName, Address address) {
 		super();
 		this.personCode = personCode;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
+		emails = new ArrayList<String>();
 	}
 
 	public String getPersonCode() {
@@ -58,12 +50,16 @@ public class Person {
 		this.address = address;
 	}
 
-	public ArrayList<String> getEmail() {
-		return email;
+	public ArrayList<String> getEmails() {
+		return emails;
 	}
 
-	public void setEmail(ArrayList<String> email) {
-		this.email = email;
+	public void setEmails(ArrayList<String> emails) {
+		this.emails = emails;
+	}
+	
+	public void addEmail(String email) {
+		emails.add(email);
 	}
 	
 }

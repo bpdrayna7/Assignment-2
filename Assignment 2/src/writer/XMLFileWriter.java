@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 import com.thoughtworks.xstream.XStream;
 
-import entities.Person;
+
 
 public class XMLFileWriter {
 
-	public void xmlConverter(ArrayList<Object> objects, String fileName, String alias) {
+	public <T> void xmlConverter(ArrayList<T> objects, String fileName, String alias) {
 		
 		XStream xstream = new XStream();
 		File xmlFile = new File(fileName);
@@ -27,7 +27,7 @@ public class XMLFileWriter {
 		xstream.alias(alias, objects.getClass());
 		
 		xmlPrinter.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
-		for(Object obj : objects) {
+		for(T obj : objects) {
 			xmlPrinter.write(xstream.toXML(obj));
 		}
 		xmlPrinter.close();
