@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<entities.Person>
+<person>
   <personCode>944c</personCode>
   <firstName> Starlin</firstName>
   <lastName>Castro</lastName>
@@ -14,7 +14,7 @@
     <string>scastro@cubs.com</string>
     <string>starlin_castro13@gmail.com</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>306a</personCode>
   <firstName> Brock</firstName>
   <lastName>Sampson</lastName>
@@ -29,7 +29,7 @@
     <string>brock_f_sampson@gmail.com</string>
     <string>bsampson@venture.com</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>55bb</personCode>
   <firstName> Miles</firstName>
   <lastName>McCarthy</lastName>
@@ -44,7 +44,7 @@
     <string>mccarthy@ds9.com</string>
     <string>mccarthy@enterprise.gov</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>2342</personCode>
   <firstName> Jeff</firstName>
   <lastName>Spalding</lastName>
@@ -55,7 +55,7 @@
     <zip>K1A 0G9</zip>
     <country>Canada</country>
   </address>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>aef1</personCode>
   <firstName> Gordon</firstName>
   <lastName>Gekko</lastName>
@@ -66,7 +66,7 @@
     <zip>10005-0012</zip>
     <country>USA</country>
   </address>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>321f</personCode>
   <firstName> Bud</firstName>
   <lastName>Fox</lastName>
@@ -81,7 +81,7 @@
     <string>bfox@gmail.com</string>
     <string>csheen@crazy.net</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>ma12</personCode>
   <firstName> Dale</firstName>
   <lastName>Sveum</lastName>
@@ -95,7 +95,7 @@
   <emails>
     <string>sveum@cubs.com</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>321nd</personCode>
   <firstName> William</firstName>
   <lastName>Hartnell</lastName>
@@ -110,7 +110,7 @@
     <string>whartnell@doctors.com</string>
     <string>dr@who.com</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>nf32a</personCode>
   <firstName> Patrick</firstName>
   <lastName>Troughton</lastName>
@@ -125,7 +125,7 @@
     <string>ptroug@cse.unl.edu</string>
     <string>ptrou32@unl.edu</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>321na</personCode>
   <firstName> Jon</firstName>
   <lastName>Pertwee</lastName>
@@ -139,7 +139,7 @@
   <emails>
     <string>jpet@whofan.com</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>231</personCode>
   <firstName>Tom</firstName>
   <lastName>Baker</lastName>
@@ -156,7 +156,7 @@
     <string>mostfamous@whovian.com</string>
     <string>thedoctor@bbc.com</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>6doc</personCode>
   <firstName> Richard</firstName>
   <lastName>Hurndall</lastName>
@@ -171,7 +171,7 @@
     <string>rhurndall@cse.unl.edu</string>
     <string>richard@unl.edu</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>321dr</personCode>
   <firstName> C.</firstName>
   <lastName>Baker</lastName>
@@ -185,7 +185,7 @@
   <emails>
     <string>dr@baker.com</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>1svndr</personCode>
   <firstName>Sylvester</firstName>
   <lastName>McCoy</lastName>
@@ -200,7 +200,7 @@
     <string>slyguy@hotmail.com</string>
     <string>mccoy@whofan.com</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>123lst</personCode>
   <firstName> Paul</firstName>
   <lastName>McGann</lastName>
@@ -216,7 +216,7 @@
     <string>foo@bar.com</string>
     <string>pmc@unl.edu</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>nwdoc1</personCode>
   <firstName> Chris</firstName>
   <lastName>Eccleston</lastName>
@@ -230,7 +230,7 @@
   <emails>
     <string>newguy@whovian.com</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>2ndbestd</personCode>
   <firstName> David</firstName>
   <lastName>Tennant</lastName>
@@ -245,7 +245,7 @@
     <string>actor@shakespeare.com</string>
     <string>tdavid@unl.edu</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>wrddoc</personCode>
   <firstName> Matt</firstName>
   <lastName>Smith</lastName>
@@ -260,7 +260,7 @@
     <string>msmith@who.com</string>
     <string>thedoc@cse.unl.edu</string>
   </emails>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>bbchar</personCode>
   <firstName> Kaylee</firstName>
   <lastName>Ehrmantraut</lastName>
@@ -271,7 +271,7 @@
     <zip> 87105</zip>
     <country>USA</country>
   </address>
-</entities.Person><entities.Person>
+</person><person>
   <personCode>doc05</personCode>
   <firstName> Peter</firstName>
   <lastName>Davison</lastName>
@@ -282,4 +282,4 @@
     <zip>11111</zip>
     <country> Mexico</country>
   </address>
-</entities.Person>
+</person>

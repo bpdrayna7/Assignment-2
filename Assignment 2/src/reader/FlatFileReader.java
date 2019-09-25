@@ -108,7 +108,7 @@ public class FlatFileReader {
 
 	public ArrayList<Product> readProducts(ArrayList<Customer> customers) {
 		final DateTimeFormatter DATE_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd");
-		final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormat.forPattern("HH:mm");
+		final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
 		Scanner scan = null;
 		try {
 			scan = new Scanner(new FileReader("data/Products.dat"));
@@ -142,6 +142,7 @@ public class FlatFileReader {
 						p = new LeaseAgreement(productCode, productType, startDate, endDate, 
 								address, customerName, deposit, monthlyCost);
 						break;
+						
 					case "S":
 						DateTime dateTime = DATE_TIME_FORMATTER.parseDateTime(attributes[2]);
 						ad = attributes[3].split(",");
@@ -154,15 +155,18 @@ public class FlatFileReader {
 						p = new SaleAgreement(productCode, productType, dateTime, address, totalCost,
 								downPayment, monthlyPayment, payableMonths, interestRate);
 						break;
+						
 					case "P":
 						double parkingFee = Double.parseDouble(attributes[2]);
 						p = new ParkingPass(productCode, productType, parkingFee);
 						break;
+						
 					case "A":
 						String name = attributes[2];
 						double cost = Double.parseDouble(attributes[3]);
 						p = new Amenity(productCode, productType, name, cost);
 						break;
+						
 					default:
 						break;
 				}
