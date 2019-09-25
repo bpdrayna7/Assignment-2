@@ -1,0 +1,144 @@
+{
+  "personCode": "540s",
+  "firstName": " Bud",
+  "lastName": "Grant",
+  "address": {
+    "street": "1440 North Viking Street",
+    "city": "St. Paul",
+    "state": "MN",
+    "zip": "55129",
+    "country": "USA"
+  },
+  "emails": [
+    "bgrant@vikings.com"
+  ]
+}
+{
+  "personCode": "660g",
+  "firstName": " John",
+  "lastName": "Smith",
+  "address": {
+    "street": "1560 Oscar Blvd.",
+    "city": "Austin",
+    "state": "TX",
+    "zip": "15600",
+    "country": "USA"
+  }
+}
+{
+  "personCode": "a100",
+  "firstName": " Michael",
+  "lastName": "Jones",
+  "address": {
+    "street": "7100 Benjamin Street",
+    "city": "Chicago",
+    "state": "IL",
+    "zip": "14789",
+    "country": "USA"
+  },
+  "emails": [
+    "mjones@gmail.com",
+    "michaelj@msn.com"
+  ]
+}
+{
+  "personCode": "77s7",
+  "firstName": " Gavin",
+  "lastName": "Free",
+  "address": {
+    "street": "9909 Hunter Place",
+    "city": "Dallas",
+    "state": "TX",
+    "zip": "67676",
+    "country": "USA"
+  },
+  "emails": [
+    "free@hotmail.com"
+  ]
+}
+{
+  "personCode": "123s",
+  "firstName": " Peter",
+  "lastName": "Crouch",
+  "address": {
+    "street": "144 Frontier Road",
+    "city": "Phoenix",
+    "state": "AZ",
+    "zip": "88700",
+    "country": "USA"
+  },
+  "emails": [
+    "crouchP@gmail.com"
+  ]
+}
+{
+  "personCode": "2yyu",
+  "firstName": " Jack",
+  "lastName": "Fox",
+  "address": {
+    "street": "9090 Maple Street",
+    "city": "Toronto",
+    "state": "ON",
+    "zip": "K12 9G9",
+    "country": "Canada"
+  }
+}
+{
+  "personCode": "8890",
+  "firstName": " Pablo",
+  "lastName": "Campos",
+  "address": {
+    "street": "3566 O Street",
+    "city": "Lincoln",
+    "state": "NE",
+    "zip": "12345",
+    "country": "USA"
+  },
+  "emails": [
+    "campos@united.com"
+  ]
+}
+{
+  "personCode": "540h",
+  "firstName": " Christian",
+  "lastName": "Ramirez",
+  "address": {
+    "street": "7789 1st Ave.",
+    "city": "Minneapolis",
+    "state": "MN",
+    "zip": "12708",
+    "country": "USA"
+  },
+  "emails": [
+    "ramirez@united.com",
+    "cramirez@gmail.com",
+    "christian@aol.com"
+  ]
+}
+{
+  "personCode": "590I2",
+  "firstName": " Karl-Anthony",
+  "lastName": "Towns",
+  "address": {
+    "street": "1200 Grand Ave.",
+    "city": "Minneapolis",
+    "state": "MN",
+    "zip": "55125",
+    "country": "USA"
+  }
+}
+{
+  "personCode": "67oo",
+  "firstName": " Karl-Anthony",
+  "lastName": "Towns Sr.",
+  "address": {
+    "street": "1460 2nd Street",
+    "city": "St. Paul",
+    "state": "MN",
+    "zip": "55129",
+    "country": "USA"
+  },
+  "emails": [
+    "townssr@gmail.com"
+  ]
+}
