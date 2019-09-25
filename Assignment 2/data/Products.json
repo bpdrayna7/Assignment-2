@@ -1,213 +1,151 @@
 {
-  "startDate": "2017-01-13",
-  "endDate": "2018-01-12",
+  "startDate": "2018-02-02",
+  "endDate": "2019-02-02",
   "address": {
-    "street": "179 West Lane",
+    "street": "122 S Street",
     "city": "Lincoln",
     "state": "NE",
-    "zip": "68588-0115",
+    "zip": "66009",
     "country": "USA"
   },
   "customerName": {
-    "customerCode": "M002",
+    "customerCode": "C003",
+    "type": "G",
+    "primaryContact": {
+      "personCode": "67oo",
+      "firstName": " Karl-Anthony",
+      "lastName": "Towns Sr.",
+      "address": {
+        "street": "1460 2nd Street",
+        "city": "St. Paul",
+        "state": "MN",
+        "zip": "55129",
+        "country": "USA"
+      },
+      "emails": [
+        "townssr@gmail.com"
+      ]
+    },
+    "name": "Tennis Tools",
+    "address": {
+      "street": "1240 21st Street",
+      "city": "Flagstaff",
+      "state": "AZ",
+      "zip": "56678",
+      "country": "USA"
+    }
+  },
+  "deposit": 500.0,
+  "monthlyCost": 375.5,
+  "productCode": "tt8y",
+  "productType": "L"
+}
+{
+  "dateTime": "2015-03-08 18:30",
+  "address": {
+    "street": "6655 Raven Drive",
+    "city": "Anoka",
+    "state": "MN",
+    "zip": "88900",
+    "country": "USA"
+  },
+  "totalCost": 77500.0,
+  "downPayment": 20000.0,
+  "monthlyPayment": 5000.0,
+  "payableMonths": 12,
+  "interestRate": 5.05,
+  "productCode": "77gg",
+  "productType": "S"
+}
+{
+  "parkingFee": 35.0,
+  "productCode": "88yy",
+  "productType": "P"
+}
+{
+  "parkingFee": 57.0,
+  "productCode": "t6t9",
+  "productType": "P"
+}
+{
+  "name": "Bed Frame",
+  "cost": 50.0,
+  "productCode": "909j",
+  "productType": "A"
+}
+{
+  "dateTime": "2014-12-12 12:00",
+  "address": {
+    "street": "4401 East Ave.",
+    "city": "Edina",
+    "state": "MN",
+    "zip": "77012",
+    "country": "USA"
+  },
+  "totalCost": 100000.0,
+  "downPayment": 15000.0,
+  "monthlyPayment": 12500.0,
+  "payableMonths": 36,
+  "interestRate": 3.0,
+  "productCode": "77ff",
+  "productType": "S"
+}
+{
+  "startDate": "2016-01-25",
+  "endDate": "2019-07-25",
+  "address": {
+    "street": "1600 Fun Place",
+    "city": "Portland",
+    "state": "OR",
+    "zip": "88125",
+    "country": "USA"
+  },
+  "customerName": {
+    "customerCode": "C005",
     "type": "L",
     "primaryContact": {
-      "personCode": "944c",
-      "firstName": " Starlin",
-      "lastName": "Castro",
+      "personCode": "77s7",
+      "firstName": " Gavin",
+      "lastName": "Free",
       "address": {
-        "street": "1060 West Addison Street",
-        "city": "Chicago",
-        "state": "IL",
-        "zip": "60613",
+        "street": "9909 Hunter Place",
+        "city": "Dallas",
+        "state": "TX",
+        "zip": "67676",
         "country": "USA"
       },
       "emails": [
-        "scastro@cubs.com",
-        "starlin_castro13@gmail.com"
+        "free@hotmail.com"
       ]
     },
-    "name": "CAS International Fellows",
+    "name": "Microsoft",
     "address": {
-      "street": "1223 Oldfather Hall",
-      "city": "Lincoln",
-      "state": "NE",
-      "zip": "68503",
+      "street": "7777 Innovation Place",
+      "city": "Seattle",
+      "state": "WA",
+      "zip": "92920",
       "country": "USA"
     }
   },
-  "deposit": 450.0,
-  "monthlyCost": 400.0,
-  "productCode": "b29e",
+  "deposit": 1000.0,
+  "monthlyCost": 700.0,
+  "productCode": "70oo",
   "productType": "L"
 }
 {
-  "name": "Furniture - Nightstand",
-  "cost": 4.99,
-  "productCode": "ff23",
+  "name": "Desk",
+  "cost": 15.0,
+  "productCode": "8jjj",
   "productType": "A"
 }
 {
-  "dateTime": "2016-10-21 13:10",
-  "address": {
-    "street": "3555 South 140th Plaza",
-    "city": "Omaha",
-    "state": " NE",
-    "zip": " 68144",
-    "country": " USA"
-  },
-  "totalCost": 215000.0,
-  "downPayment": 10000.0,
-  "monthlyPayment": 600.0,
-  "payableMonths": 24,
-  "interestRate": 4.0,
-  "productCode": "fp12",
-  "productType": "S"
-}
-{
-  "parkingFee": 25.0,
-  "productCode": "90fa",
-  "productType": "P"
-}
-{
-  "dateTime": "2018-01-16 15:30",
-  "address": {
-    "street": "755 Willard Drive",
-    "city": "Ashwaubenon",
-    "state": " WI",
-    "zip": " 54304",
-    "country": " USA"
-  },
-  "totalCost": 11000.0,
-  "downPayment": 1000.0,
-  "monthlyPayment": 70.0,
-  "payableMonths": 18,
-  "interestRate": 3.59,
-  "productCode": "1239",
-  "productType": "S"
-}
-{
-  "dateTime": "2016-11-10 10:00",
-  "address": {
-    "street": "6301 University Ave",
-    "city": "Cedar Falls",
-    "state": " IA",
-    "zip": " 50613",
-    "country": " USA"
-  },
-  "totalCost": 4200000.0,
-  "downPayment": 200000.0,
-  "monthlyPayment": 8750.0,
-  "payableMonths": 36,
-  "interestRate": 2.11,
-  "productCode": "782g",
-  "productType": "S"
-}
-{
-  "parkingFee": 55.0,
-  "productCode": "3289",
-  "productType": "P"
-}
-{
-  "name": "Router",
-  "cost": 5.5,
-  "productCode": "32f4",
+  "name": "Modem",
+  "cost": 10.99,
+  "productCode": "989i",
   "productType": "A"
 }
 {
-  "startDate": "2017-11-24",
-  "endDate": "2018-11-23",
-  "address": {
-    "street": "449 3rd Ave",
-    "city": "Omaha",
-    "state": "NE",
-    "zip": "68521-5593",
-    "country": "USA"
-  },
-  "customerName": {
-    "customerCode": "M004",
-    "type": "G",
-    "primaryContact": {
-      "personCode": "321f",
-      "firstName": " Bud",
-      "lastName": "Fox",
-      "address": {
-        "street": "321 Bronx Street",
-        "city": "New York",
-        "state": "NY",
-        "zip": "10004",
-        "country": "USA"
-      },
-      "emails": [
-        "bfox@gmail.com",
-        "csheen@crazy.net"
-      ]
-    },
-    "name": "Stony Brook",
-    "address": {
-      "street": "9800 Savage Rd",
-      "city": "Fort Meade",
-      "state": "MD",
-      "zip": "20755",
-      "country": "USA"
-    }
-  },
-  "deposit": 900.0,
-  "monthlyCost": 900.0,
-  "productCode": "3y92",
-  "productType": "L"
-}
-{
-  "parkingFee": 20.0,
-  "productCode": "90fb",
+  "parkingFee": 40.5,
+  "productCode": "000a",
   "productType": "P"
-}
-{
-  "startDate": "2016-10-07",
-  "endDate": "2017-10-06",
-  "address": {
-    "street": "375 Northwoods",
-    "city": "Souix City",
-    "state": " IA",
-    "zip": " 44982",
-    "country": " USA"
-  },
-  "customerName": {
-    "customerCode": "M004",
-    "type": "G",
-    "primaryContact": {
-      "personCode": "321f",
-      "firstName": " Bud",
-      "lastName": "Fox",
-      "address": {
-        "street": "321 Bronx Street",
-        "city": "New York",
-        "state": "NY",
-        "zip": "10004",
-        "country": "USA"
-      },
-      "emails": [
-        "bfox@gmail.com",
-        "csheen@crazy.net"
-      ]
-    },
-    "name": "Stony Brook",
-    "address": {
-      "street": "9800 Savage Rd",
-      "city": "Fort Meade",
-      "state": "MD",
-      "zip": "20755",
-      "country": "USA"
-    }
-  },
-  "deposit": 1299.0,
-  "monthlyCost": 1000.0,
-  "productCode": "xer4",
-  "productType": "L"
-}
-{
-  "name": "Basic Cable",
-  "cost": 69.5,
-  "productCode": "yp23",
-  "productType": "A"
 }

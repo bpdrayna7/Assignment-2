@@ -18,7 +18,7 @@ public class DataConverter {
 		//Creates FlatFileReader object
 		FlatFileReader ffr = new FlatFileReader();
 		
-		
+		//reads flat files, instantiates objects and stores them into ArrayLists
 		ArrayList<Person> people = ffr.readPeople();
 		ArrayList<Customer> customers = ffr.readCustomers(people);
 		ArrayList<Product> products = ffr.readProducts(customers);
@@ -36,6 +36,7 @@ public class DataConverter {
 		jsonWriter.jsonConverter(products, "data/Products.json");		
 	}
 	
+	//Stops illegal reflective access operation warning caused by XStream
 	public static void disableWarning() {
 		System.err.close();
 		System.setErr(System.out);

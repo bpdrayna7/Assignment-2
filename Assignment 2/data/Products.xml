@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <entities.LeaseAgreement>
-  <productCode>b29e</productCode>
+  <productCode>tt8y</productCode>
   <productType>L</productType>
   <startDate>
-    <iMillis>1484287200000</iMillis>
+    <iMillis>1517551200000</iMillis>
     <iChronology class="org.joda.time.chrono.ISOChronology" resolves-to="org.joda.time.chrono.ISOChronology$Stub" serialization="custom">
       <org.joda.time.chrono.ISOChronology_-Stub>
         <org.joda.time.tz.CachedDateTimeZone resolves-to="org.joda.time.DateTimeZone$Stub" serialization="custom">
@@ -15,264 +15,179 @@
     </iChronology>
   </startDate>
   <endDate>
-    <iMillis>1515736800000</iMillis>
+    <iMillis>1549087200000</iMillis>
     <iChronology class="org.joda.time.chrono.ISOChronology" reference="../../startDate/iChronology"/>
   </endDate>
   <address>
-    <street>179 West Lane</street>
+    <street>122 S Street</street>
     <city>Lincoln</city>
     <state>NE</state>
-    <zip>68588-0115</zip>
+    <zip>66009</zip>
     <country>USA</country>
   </address>
   <customerName>
-    <customerCode>M002</customerCode>
+    <customerCode>C003</customerCode>
+    <type>G</type>
+    <primaryContact>
+      <personCode>67oo</personCode>
+      <firstName> Karl-Anthony</firstName>
+      <lastName>Towns Sr.</lastName>
+      <address>
+        <street>1460 2nd Street</street>
+        <city>St. Paul</city>
+        <state>MN</state>
+        <zip>55129</zip>
+        <country>USA</country>
+      </address>
+      <emails>
+        <string>townssr@gmail.com</string>
+      </emails>
+    </primaryContact>
+    <name>Tennis Tools</name>
+    <address>
+      <street>1240 21st Street</street>
+      <city>Flagstaff</city>
+      <state>AZ</state>
+      <zip>56678</zip>
+      <country>USA</country>
+    </address>
+  </customerName>
+  <deposit>500.0</deposit>
+  <monthlyCost>375.5</monthlyCost>
+</entities.LeaseAgreement><entities.SaleAgreement>
+  <productCode>77gg</productCode>
+  <productType>S</productType>
+  <dateTime>
+    <iMillis>1425857400000</iMillis>
+    <iChronology class="org.joda.time.chrono.ISOChronology" resolves-to="org.joda.time.chrono.ISOChronology$Stub" serialization="custom">
+      <org.joda.time.chrono.ISOChronology_-Stub>
+        <org.joda.time.tz.CachedDateTimeZone resolves-to="org.joda.time.DateTimeZone$Stub" serialization="custom">
+          <org.joda.time.DateTimeZone_-Stub>
+            <string>America/Chicago</string>
+          </org.joda.time.DateTimeZone_-Stub>
+        </org.joda.time.tz.CachedDateTimeZone>
+      </org.joda.time.chrono.ISOChronology_-Stub>
+    </iChronology>
+  </dateTime>
+  <address>
+    <street>6655 Raven Drive</street>
+    <city>Anoka</city>
+    <state>MN</state>
+    <zip>88900</zip>
+    <country>USA</country>
+  </address>
+  <totalCost>77500.0</totalCost>
+  <downPayment>20000.0</downPayment>
+  <monthlyPayment>5000.0</monthlyPayment>
+  <payableMonths>12</payableMonths>
+  <interestRate>5.05</interestRate>
+</entities.SaleAgreement><entities.ParkingPass>
+  <productCode>88yy</productCode>
+  <productType>P</productType>
+  <parkingFee>35.0</parkingFee>
+</entities.ParkingPass><entities.ParkingPass>
+  <productCode>t6t9</productCode>
+  <productType>P</productType>
+  <parkingFee>57.0</parkingFee>
+</entities.ParkingPass><entities.Amenity>
+  <productCode>909j</productCode>
+  <productType>A</productType>
+  <name>Bed Frame</name>
+  <cost>50.0</cost>
+</entities.Amenity><entities.SaleAgreement>
+  <productCode>77ff</productCode>
+  <productType>S</productType>
+  <dateTime>
+    <iMillis>1418407200000</iMillis>
+    <iChronology class="org.joda.time.chrono.ISOChronology" resolves-to="org.joda.time.chrono.ISOChronology$Stub" serialization="custom">
+      <org.joda.time.chrono.ISOChronology_-Stub>
+        <org.joda.time.tz.CachedDateTimeZone resolves-to="org.joda.time.DateTimeZone$Stub" serialization="custom">
+          <org.joda.time.DateTimeZone_-Stub>
+            <string>America/Chicago</string>
+          </org.joda.time.DateTimeZone_-Stub>
+        </org.joda.time.tz.CachedDateTimeZone>
+      </org.joda.time.chrono.ISOChronology_-Stub>
+    </iChronology>
+  </dateTime>
+  <address>
+    <street>4401 East Ave.</street>
+    <city>Edina</city>
+    <state>MN</state>
+    <zip>77012</zip>
+    <country>USA</country>
+  </address>
+  <totalCost>100000.0</totalCost>
+  <downPayment>15000.0</downPayment>
+  <monthlyPayment>12500.0</monthlyPayment>
+  <payableMonths>36</payableMonths>
+  <interestRate>3.0</interestRate>
+</entities.SaleAgreement><entities.LeaseAgreement>
+  <productCode>70oo</productCode>
+  <productType>L</productType>
+  <startDate>
+    <iMillis>1453701600000</iMillis>
+    <iChronology class="org.joda.time.chrono.ISOChronology" resolves-to="org.joda.time.chrono.ISOChronology$Stub" serialization="custom">
+      <org.joda.time.chrono.ISOChronology_-Stub>
+        <org.joda.time.tz.CachedDateTimeZone resolves-to="org.joda.time.DateTimeZone$Stub" serialization="custom">
+          <org.joda.time.DateTimeZone_-Stub>
+            <string>America/Chicago</string>
+          </org.joda.time.DateTimeZone_-Stub>
+        </org.joda.time.tz.CachedDateTimeZone>
+      </org.joda.time.chrono.ISOChronology_-Stub>
+    </iChronology>
+  </startDate>
+  <endDate>
+    <iMillis>1564030800000</iMillis>
+    <iChronology class="org.joda.time.chrono.ISOChronology" reference="../../startDate/iChronology"/>
+  </endDate>
+  <address>
+    <street>1600 Fun Place</street>
+    <city>Portland</city>
+    <state>OR</state>
+    <zip>88125</zip>
+    <country>USA</country>
+  </address>
+  <customerName>
+    <customerCode>C005</customerCode>
     <type>L</type>
     <primaryContact>
-      <personCode>944c</personCode>
-      <firstName> Starlin</firstName>
-      <lastName>Castro</lastName>
+      <personCode>77s7</personCode>
+      <firstName> Gavin</firstName>
+      <lastName>Free</lastName>
       <address>
-        <street>1060 West Addison Street</street>
-        <city>Chicago</city>
-        <state>IL</state>
-        <zip>60613</zip>
+        <street>9909 Hunter Place</street>
+        <city>Dallas</city>
+        <state>TX</state>
+        <zip>67676</zip>
         <country>USA</country>
       </address>
       <emails>
-        <string>scastro@cubs.com</string>
-        <string>starlin_castro13@gmail.com</string>
+        <string>free@hotmail.com</string>
       </emails>
     </primaryContact>
-    <name>CAS International Fellows</name>
+    <name>Microsoft</name>
     <address>
-      <street>1223 Oldfather Hall</street>
-      <city>Lincoln</city>
-      <state>NE</state>
-      <zip>68503</zip>
+      <street>7777 Innovation Place</street>
+      <city>Seattle</city>
+      <state>WA</state>
+      <zip>92920</zip>
       <country>USA</country>
     </address>
   </customerName>
-  <deposit>450.0</deposit>
-  <monthlyCost>400.0</monthlyCost>
+  <deposit>1000.0</deposit>
+  <monthlyCost>700.0</monthlyCost>
 </entities.LeaseAgreement><entities.Amenity>
-  <productCode>ff23</productCode>
+  <productCode>8jjj</productCode>
   <productType>A</productType>
-  <name>Furniture - Nightstand</name>
-  <cost>4.99</cost>
-</entities.Amenity><entities.SaleAgreement>
-  <productCode>fp12</productCode>
-  <productType>S</productType>
-  <dateTime>
-    <iMillis>1477073400000</iMillis>
-    <iChronology class="org.joda.time.chrono.ISOChronology" resolves-to="org.joda.time.chrono.ISOChronology$Stub" serialization="custom">
-      <org.joda.time.chrono.ISOChronology_-Stub>
-        <org.joda.time.tz.CachedDateTimeZone resolves-to="org.joda.time.DateTimeZone$Stub" serialization="custom">
-          <org.joda.time.DateTimeZone_-Stub>
-            <string>America/Chicago</string>
-          </org.joda.time.DateTimeZone_-Stub>
-        </org.joda.time.tz.CachedDateTimeZone>
-      </org.joda.time.chrono.ISOChronology_-Stub>
-    </iChronology>
-  </dateTime>
-  <address>
-    <street>3555 South 140th Plaza</street>
-    <city>Omaha</city>
-    <state> NE</state>
-    <zip> 68144</zip>
-    <country> USA</country>
-  </address>
-  <totalCost>215000.0</totalCost>
-  <downPayment>10000.0</downPayment>
-  <monthlyPayment>600.0</monthlyPayment>
-  <payableMonths>24</payableMonths>
-  <interestRate>4.0</interestRate>
-</entities.SaleAgreement><entities.ParkingPass>
-  <productCode>90fa</productCode>
-  <productType>P</productType>
-  <parkingFee>25.0</parkingFee>
-</entities.ParkingPass><entities.SaleAgreement>
-  <productCode>1239</productCode>
-  <productType>S</productType>
-  <dateTime>
-    <iMillis>1516138200000</iMillis>
-    <iChronology class="org.joda.time.chrono.ISOChronology" resolves-to="org.joda.time.chrono.ISOChronology$Stub" serialization="custom">
-      <org.joda.time.chrono.ISOChronology_-Stub>
-        <org.joda.time.tz.CachedDateTimeZone resolves-to="org.joda.time.DateTimeZone$Stub" serialization="custom">
-          <org.joda.time.DateTimeZone_-Stub>
-            <string>America/Chicago</string>
-          </org.joda.time.DateTimeZone_-Stub>
-        </org.joda.time.tz.CachedDateTimeZone>
-      </org.joda.time.chrono.ISOChronology_-Stub>
-    </iChronology>
-  </dateTime>
-  <address>
-    <street>755 Willard Drive</street>
-    <city>Ashwaubenon</city>
-    <state> WI</state>
-    <zip> 54304</zip>
-    <country> USA</country>
-  </address>
-  <totalCost>11000.0</totalCost>
-  <downPayment>1000.0</downPayment>
-  <monthlyPayment>70.0</monthlyPayment>
-  <payableMonths>18</payableMonths>
-  <interestRate>3.59</interestRate>
-</entities.SaleAgreement><entities.SaleAgreement>
-  <productCode>782g</productCode>
-  <productType>S</productType>
-  <dateTime>
-    <iMillis>1478793600000</iMillis>
-    <iChronology class="org.joda.time.chrono.ISOChronology" resolves-to="org.joda.time.chrono.ISOChronology$Stub" serialization="custom">
-      <org.joda.time.chrono.ISOChronology_-Stub>
-        <org.joda.time.tz.CachedDateTimeZone resolves-to="org.joda.time.DateTimeZone$Stub" serialization="custom">
-          <org.joda.time.DateTimeZone_-Stub>
-            <string>America/Chicago</string>
-          </org.joda.time.DateTimeZone_-Stub>
-        </org.joda.time.tz.CachedDateTimeZone>
-      </org.joda.time.chrono.ISOChronology_-Stub>
-    </iChronology>
-  </dateTime>
-  <address>
-    <street>6301 University Ave</street>
-    <city>Cedar Falls</city>
-    <state> IA</state>
-    <zip> 50613</zip>
-    <country> USA</country>
-  </address>
-  <totalCost>4200000.0</totalCost>
-  <downPayment>200000.0</downPayment>
-  <monthlyPayment>8750.0</monthlyPayment>
-  <payableMonths>36</payableMonths>
-  <interestRate>2.11</interestRate>
-</entities.SaleAgreement><entities.ParkingPass>
-  <productCode>3289</productCode>
-  <productType>P</productType>
-  <parkingFee>55.0</parkingFee>
-</entities.ParkingPass><entities.Amenity>
-  <productCode>32f4</productCode>
+  <name>Desk</name>
+  <cost>15.0</cost>
+</entities.Amenity><entities.Amenity>
+  <productCode>989i</productCode>
   <productType>A</productType>
-  <name>Router</name>
-  <cost>5.5</cost>
-</entities.Amenity><entities.LeaseAgreement>
-  <productCode>3y92</productCode>
-  <productType>L</productType>
-  <startDate>
-    <iMillis>1511503200000</iMillis>
-    <iChronology class="org.joda.time.chrono.ISOChronology" resolves-to="org.joda.time.chrono.ISOChronology$Stub" serialization="custom">
-      <org.joda.time.chrono.ISOChronology_-Stub>
-        <org.joda.time.tz.CachedDateTimeZone resolves-to="org.joda.time.DateTimeZone$Stub" serialization="custom">
-          <org.joda.time.DateTimeZone_-Stub>
-            <string>America/Chicago</string>
-          </org.joda.time.DateTimeZone_-Stub>
-        </org.joda.time.tz.CachedDateTimeZone>
-      </org.joda.time.chrono.ISOChronology_-Stub>
-    </iChronology>
-  </startDate>
-  <endDate>
-    <iMillis>1542952800000</iMillis>
-    <iChronology class="org.joda.time.chrono.ISOChronology" reference="../../startDate/iChronology"/>
-  </endDate>
-  <address>
-    <street>449 3rd Ave</street>
-    <city>Omaha</city>
-    <state>NE</state>
-    <zip>68521-5593</zip>
-    <country>USA</country>
-  </address>
-  <customerName>
-    <customerCode>M004</customerCode>
-    <type>G</type>
-    <primaryContact>
-      <personCode>321f</personCode>
-      <firstName> Bud</firstName>
-      <lastName>Fox</lastName>
-      <address>
-        <street>321 Bronx Street</street>
-        <city>New York</city>
-        <state>NY</state>
-        <zip>10004</zip>
-        <country>USA</country>
-      </address>
-      <emails>
-        <string>bfox@gmail.com</string>
-        <string>csheen@crazy.net</string>
-      </emails>
-    </primaryContact>
-    <name>Stony Brook</name>
-    <address>
-      <street>9800 Savage Rd</street>
-      <city>Fort Meade</city>
-      <state>MD</state>
-      <zip>20755</zip>
-      <country>USA</country>
-    </address>
-  </customerName>
-  <deposit>900.0</deposit>
-  <monthlyCost>900.0</monthlyCost>
-</entities.LeaseAgreement><entities.ParkingPass>
-  <productCode>90fb</productCode>
+  <name>Modem</name>
+  <cost>10.99</cost>
+</entities.Amenity><entities.ParkingPass>
+  <productCode>000a</productCode>
   <productType>P</productType>
-  <parkingFee>20.0</parkingFee>
-</entities.ParkingPass><entities.LeaseAgreement>
-  <productCode>xer4</productCode>
-  <productType>L</productType>
-  <startDate>
-    <iMillis>1475816400000</iMillis>
-    <iChronology class="org.joda.time.chrono.ISOChronology" resolves-to="org.joda.time.chrono.ISOChronology$Stub" serialization="custom">
-      <org.joda.time.chrono.ISOChronology_-Stub>
-        <org.joda.time.tz.CachedDateTimeZone resolves-to="org.joda.time.DateTimeZone$Stub" serialization="custom">
-          <org.joda.time.DateTimeZone_-Stub>
-            <string>America/Chicago</string>
-          </org.joda.time.DateTimeZone_-Stub>
-        </org.joda.time.tz.CachedDateTimeZone>
-      </org.joda.time.chrono.ISOChronology_-Stub>
-    </iChronology>
-  </startDate>
-  <endDate>
-    <iMillis>1507266000000</iMillis>
-    <iChronology class="org.joda.time.chrono.ISOChronology" reference="../../startDate/iChronology"/>
-  </endDate>
-  <address>
-    <street>375 Northwoods</street>
-    <city>Souix City</city>
-    <state> IA</state>
-    <zip> 44982</zip>
-    <country> USA</country>
-  </address>
-  <customerName>
-    <customerCode>M004</customerCode>
-    <type>G</type>
-    <primaryContact>
-      <personCode>321f</personCode>
-      <firstName> Bud</firstName>
-      <lastName>Fox</lastName>
-      <address>
-        <street>321 Bronx Street</street>
-        <city>New York</city>
-        <state>NY</state>
-        <zip>10004</zip>
-        <country>USA</country>
-      </address>
-      <emails>
-        <string>bfox@gmail.com</string>
-        <string>csheen@crazy.net</string>
-      </emails>
-    </primaryContact>
-    <name>Stony Brook</name>
-    <address>
-      <street>9800 Savage Rd</street>
-      <city>Fort Meade</city>
-      <state>MD</state>
-      <zip>20755</zip>
-      <country>USA</country>
-    </address>
-  </customerName>
-  <deposit>1299.0</deposit>
-  <monthlyCost>1000.0</monthlyCost>
-</entities.LeaseAgreement><entities.Amenity>
-  <productCode>yp23</productCode>
-  <productType>A</productType>
-  <name>Basic Cable</name>
-  <cost>69.5</cost>
-</entities.Amenity>
+  <parkingFee>40.5</parkingFee>
+</entities.ParkingPass>
