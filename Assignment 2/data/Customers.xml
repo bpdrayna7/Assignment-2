@@ -1,132 +1,138 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<customer>
-  <customerCode>C001</customerCode>
-  <type>G</type>
-  <primaryContact>
-    <personCode>a100</personCode>
-    <firstName> Michael</firstName>
-    <lastName>Jones</lastName>
+<list>
+  <Customer>
+    <customerCode>C001</customerCode>
+    <type>G</type>
+    <primaryContact>
+      <personCode>a100</personCode>
+      <firstName> Michael</firstName>
+      <lastName>Jones</lastName>
+      <address>
+        <street>7100 Benjamin Street</street>
+        <city>Chicago</city>
+        <state>IL</state>
+        <zip>14789</zip>
+        <country>USA</country>
+      </address>
+      <emails>
+        <string>mjones@gmail.com</string>
+        <string>michaelj@msn.com</string>
+      </emails>
+    </primaryContact>
+    <name>Jones Industries</name>
     <address>
-      <street>7100 Benjamin Street</street>
-      <city>Chicago</city>
-      <state>IL</state>
-      <zip>14789</zip>
-      <country>USA</country>
-    </address>
-    <emails>
-      <string>mjones@gmail.com</string>
-      <string>michaelj@msn.com</string>
-    </emails>
-  </primaryContact>
-  <name>Jones Industries</name>
-  <address>
-    <street>1224 New Street</street>
-    <city>Woodbury</city>
-    <state>MN</state>
-    <zip>55129</zip>
-    <country>USA</country>
-  </address>
-</customer><customer>
-  <customerCode>C002</customerCode>
-  <type>L</type>
-  <primaryContact>
-    <personCode>540h</personCode>
-    <firstName> Christian</firstName>
-    <lastName>Ramirez</lastName>
-    <address>
-      <street>7789 1st Ave.</street>
-      <city>Minneapolis</city>
-      <state>MN</state>
-      <zip>12708</zip>
-      <country>USA</country>
-    </address>
-    <emails>
-      <string>ramirez@united.com</string>
-      <string>cramirez@gmail.com</string>
-      <string>christian@aol.com</string>
-    </emails>
-  </primaryContact>
-  <name>Jackson Development</name>
-  <address>
-    <street>6767 Park Place</street>
-    <city>New York</city>
-    <state>NY</state>
-    <zip>33770</zip>
-    <country>USA</country>
-  </address>
-</customer><customer>
-  <customerCode>C003</customerCode>
-  <type>G</type>
-  <primaryContact>
-    <personCode>67oo</personCode>
-    <firstName> Karl-Anthony</firstName>
-    <lastName>Towns Sr.</lastName>
-    <address>
-      <street>1460 2nd Street</street>
-      <city>St. Paul</city>
+      <street>1224 New Street</street>
+      <city>Woodbury</city>
       <state>MN</state>
       <zip>55129</zip>
       <country>USA</country>
     </address>
-    <emails>
-      <string>townssr@gmail.com</string>
-    </emails>
-  </primaryContact>
-  <name>Tennis Tools</name>
-  <address>
-    <street>1240 21st Street</street>
-    <city>Flagstaff</city>
-    <state>AZ</state>
-    <zip>56678</zip>
-    <country>USA</country>
-  </address>
-</customer><customer>
-  <customerCode>C004</customerCode>
-  <type>G</type>
-  <primaryContact>
-    <personCode>2yyu</personCode>
-    <firstName> Jack</firstName>
-    <lastName>Fox</lastName>
+  </Customer>
+  <Customer>
+    <customerCode>C002</customerCode>
+    <type>L</type>
+    <primaryContact>
+      <personCode>540h</personCode>
+      <firstName> Christian</firstName>
+      <lastName>Ramirez</lastName>
+      <address>
+        <street>7789 1st Ave.</street>
+        <city>Minneapolis</city>
+        <state>MN</state>
+        <zip>12708</zip>
+        <country>USA</country>
+      </address>
+      <emails>
+        <string>ramirez@united.com</string>
+        <string>cramirez@gmail.com</string>
+        <string>christian@aol.com</string>
+      </emails>
+    </primaryContact>
+    <name>Jackson Development</name>
     <address>
-      <street>9090 Maple Street</street>
-      <city>Toronto</city>
-      <state>ON</state>
-      <zip>K12 9G9</zip>
-      <country>Canada</country>
-    </address>
-  </primaryContact>
-  <name>Stonebridge</name>
-  <address>
-    <street>5400 West Broadway Way</street>
-    <city>Denver</city>
-    <state>CO</state>
-    <zip>77822</zip>
-    <country>USA</country>
-  </address>
-</customer><customer>
-  <customerCode>C005</customerCode>
-  <type>L</type>
-  <primaryContact>
-    <personCode>77s7</personCode>
-    <firstName> Gavin</firstName>
-    <lastName>Free</lastName>
-    <address>
-      <street>9909 Hunter Place</street>
-      <city>Dallas</city>
-      <state>TX</state>
-      <zip>67676</zip>
+      <street>6767 Park Place</street>
+      <city>New York</city>
+      <state>NY</state>
+      <zip>33770</zip>
       <country>USA</country>
     </address>
-    <emails>
-      <string>free@hotmail.com</string>
-    </emails>
-  </primaryContact>
-  <name>Microsoft</name>
-  <address>
-    <street>7777 Innovation Place</street>
-    <city>Seattle</city>
-    <state>WA</state>
-    <zip>92920</zip>
-    <country>USA</country>
-  </address>
-</customer>
+  </Customer>
+  <Customer>
+    <customerCode>C003</customerCode>
+    <type>G</type>
+    <primaryContact>
+      <personCode>67oo</personCode>
+      <firstName> Karl-Anthony</firstName>
+      <lastName>Towns Sr.</lastName>
+      <address>
+        <street>1460 2nd Street</street>
+        <city>St. Paul</city>
+        <state>MN</state>
+        <zip>55129</zip>
+        <country>USA</country>
+      </address>
+      <emails>
+        <string>townssr@gmail.com</string>
+      </emails>
+    </primaryContact>
+    <name>Tennis Tools</name>
+    <address>
+      <street>1240 21st Street</street>
+      <city>Flagstaff</city>
+      <state>AZ</state>
+      <zip>56678</zip>
+      <country>USA</country>
+    </address>
+  </Customer>
+  <Customer>
+    <customerCode>C004</customerCode>
+    <type>G</type>
+    <primaryContact>
+      <personCode>2yyu</personCode>
+      <firstName> Jack</firstName>
+      <lastName>Fox</lastName>
+      <address>
+        <street>9090 Maple Street</street>
+        <city>Toronto</city>
+        <state>ON</state>
+        <zip>K12 9G9</zip>
+        <country>Canada</country>
+      </address>
+    </primaryContact>
+    <name>Stonebridge</name>
+    <address>
+      <street>5400 West Broadway Way</street>
+      <city>Denver</city>
+      <state>CO</state>
+      <zip>77822</zip>
+      <country>USA</country>
+    </address>
+  </Customer>
+  <Customer>
+    <customerCode>C005</customerCode>
+    <type>L</type>
+    <primaryContact>
+      <personCode>77s7</personCode>
+      <firstName> Gavin</firstName>
+      <lastName>Free</lastName>
+      <address>
+        <street>9909 Hunter Place</street>
+        <city>Dallas</city>
+        <state>TX</state>
+        <zip>67676</zip>
+        <country>USA</country>
+      </address>
+      <emails>
+        <string>free@hotmail.com</string>
+      </emails>
+    </primaryContact>
+    <name>Microsoft</name>
+    <address>
+      <street>7777 Innovation Place</street>
+      <city>Seattle</city>
+      <state>WA</state>
+      <zip>92920</zip>
+      <country>USA</country>
+    </address>
+  </Customer>
+</list>

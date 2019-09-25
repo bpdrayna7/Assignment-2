@@ -1,9 +1,11 @@
 package entities;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 public class SaleAgreement extends Product {
-	private DateTime dateTime;
+	private String dateTime;
 	private Address address;
 	private double totalCost;
 	private double downPayment;
@@ -11,7 +13,7 @@ public class SaleAgreement extends Product {
 	private int payableMonths;
 	private double interestRate;
 	
-	public SaleAgreement(String productCode, String productType, DateTime dateTime, Address address, 
+	public SaleAgreement(String productCode, String productType, String dateTime, Address address, 
 			double totalCost, double downPayment, double monthlyPayment, int payableMonths, 
 			double interestRate) {
 		super(productCode, productType);
@@ -24,11 +26,16 @@ public class SaleAgreement extends Product {
 		this.interestRate = interestRate;
 	}
 
-	public DateTime getDateTime() {
+	public DateTime dateTimeConverter(String input) {
+		final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
+		return DATE_TIME_FORMATTER.parseDateTime(input);
+	}
+	
+	public String getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(DateTime dateTime) {
+	public void setDateTime(String dateTime) {
 		this.dateTime = dateTime;
 	}
 
@@ -79,5 +86,4 @@ public class SaleAgreement extends Product {
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
-	
 }

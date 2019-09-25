@@ -1,16 +1,18 @@
 package entities;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 public class LeaseAgreement extends Product {
-	private DateTime startDate;
-	private DateTime endDate;
+	private String startDate;
+	private String endDate;
 	private Address address;
 	private Customer customerName;
 	private double deposit;
 	private double monthlyCost;
 	
-	public LeaseAgreement(String productCode, String productType, DateTime startDate, DateTime endDate, 
+	public LeaseAgreement(String productCode, String productType, String startDate, String endDate, 
 			Address address, Customer customerName, double deposit, double monthlyCost) {
 		super(productCode, productType);
 		this.startDate = startDate;
@@ -21,19 +23,24 @@ public class LeaseAgreement extends Product {
 		this.monthlyCost = monthlyCost;
 	}
 
-	public DateTime getStartDate() {
+	public DateTime dateTimeConverter(String input) {
+		final DateTimeFormatter DATE_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd");
+		return DATE_FORMATTER.parseDateTime(input);
+	}
+	
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(DateTime startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public DateTime getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(DateTime endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 
