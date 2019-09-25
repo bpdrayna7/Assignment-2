@@ -14,7 +14,7 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-import entities.LeaseAgreement;
+import entities.SaleAgreement;
 
 
 public class JsonFileWriter {
@@ -37,7 +37,7 @@ public class JsonFileWriter {
 		
 		for(T object:objects) {
 			String objectOutput;
-			if(object instanceof LeaseAgreement) {
+			if(object instanceof SaleAgreement) {
 				objectOutput = dateTimeGson.toJson(object);
 			}
 			else {

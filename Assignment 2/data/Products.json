@@ -1,0 +1,213 @@
+{
+  "startDate": "2017-01-13",
+  "endDate": "2018-01-12",
+  "address": {
+    "street": "179 West Lane",
+    "city": "Lincoln",
+    "state": "NE",
+    "zip": "68588-0115",
+    "country": "USA"
+  },
+  "customerName": {
+    "customerCode": "M002",
+    "type": "L",
+    "primaryContact": {
+      "personCode": "944c",
+      "firstName": " Starlin",
+      "lastName": "Castro",
+      "address": {
+        "street": "1060 West Addison Street",
+        "city": "Chicago",
+        "state": "IL",
+        "zip": "60613",
+        "country": "USA"
+      },
+      "emails": [
+        "scastro@cubs.com",
+        "starlin_castro13@gmail.com"
+      ]
+    },
+    "name": "CAS International Fellows",
+    "address": {
+      "street": "1223 Oldfather Hall",
+      "city": "Lincoln",
+      "state": "NE",
+      "zip": "68503",
+      "country": "USA"
+    }
+  },
+  "deposit": 450.0,
+  "monthlyCost": 400.0,
+  "productCode": "b29e",
+  "productType": "L"
+}
+{
+  "name": "Furniture - Nightstand",
+  "cost": 4.99,
+  "productCode": "ff23",
+  "productType": "A"
+}
+{
+  "dateTime": "2016-10-21 13:10",
+  "address": {
+    "street": "3555 South 140th Plaza",
+    "city": "Omaha",
+    "state": " NE",
+    "zip": " 68144",
+    "country": " USA"
+  },
+  "totalCost": 215000.0,
+  "downPayment": 10000.0,
+  "monthlyPayment": 600.0,
+  "payableMonths": 24,
+  "interestRate": 4.0,
+  "productCode": "fp12",
+  "productType": "S"
+}
+{
+  "parkingFee": 25.0,
+  "productCode": "90fa",
+  "productType": "P"
+}
+{
+  "dateTime": "2018-01-16 15:30",
+  "address": {
+    "street": "755 Willard Drive",
+    "city": "Ashwaubenon",
+    "state": " WI",
+    "zip": " 54304",
+    "country": " USA"
+  },
+  "totalCost": 11000.0,
+  "downPayment": 1000.0,
+  "monthlyPayment": 70.0,
+  "payableMonths": 18,
+  "interestRate": 3.59,
+  "productCode": "1239",
+  "productType": "S"
+}
+{
+  "dateTime": "2016-11-10 10:00",
+  "address": {
+    "street": "6301 University Ave",
+    "city": "Cedar Falls",
+    "state": " IA",
+    "zip": " 50613",
+    "country": " USA"
+  },
+  "totalCost": 4200000.0,
+  "downPayment": 200000.0,
+  "monthlyPayment": 8750.0,
+  "payableMonths": 36,
+  "interestRate": 2.11,
+  "productCode": "782g",
+  "productType": "S"
+}
+{
+  "parkingFee": 55.0,
+  "productCode": "3289",
+  "productType": "P"
+}
+{
+  "name": "Router",
+  "cost": 5.5,
+  "productCode": "32f4",
+  "productType": "A"
+}
+{
+  "startDate": "2017-11-24",
+  "endDate": "2018-11-23",
+  "address": {
+    "street": "449 3rd Ave",
+    "city": "Omaha",
+    "state": "NE",
+    "zip": "68521-5593",
+    "country": "USA"
+  },
+  "customerName": {
+    "customerCode": "M004",
+    "type": "G",
+    "primaryContact": {
+      "personCode": "321f",
+      "firstName": " Bud",
+      "lastName": "Fox",
+      "address": {
+        "street": "321 Bronx Street",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10004",
+        "country": "USA"
+      },
+      "emails": [
+        "bfox@gmail.com",
+        "csheen@crazy.net"
+      ]
+    },
+    "name": "Stony Brook",
+    "address": {
+      "street": "9800 Savage Rd",
+      "city": "Fort Meade",
+      "state": "MD",
+      "zip": "20755",
+      "country": "USA"
+    }
+  },
+  "deposit": 900.0,
+  "monthlyCost": 900.0,
+  "productCode": "3y92",
+  "productType": "L"
+}
+{
+  "parkingFee": 20.0,
+  "productCode": "90fb",
+  "productType": "P"
+}
+{
+  "startDate": "2016-10-07",
+  "endDate": "2017-10-06",
+  "address": {
+    "street": "375 Northwoods",
+    "city": "Souix City",
+    "state": " IA",
+    "zip": " 44982",
+    "country": " USA"
+  },
+  "customerName": {
+    "customerCode": "M004",
+    "type": "G",
+    "primaryContact": {
+      "personCode": "321f",
+      "firstName": " Bud",
+      "lastName": "Fox",
+      "address": {
+        "street": "321 Bronx Street",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10004",
+        "country": "USA"
+      },
+      "emails": [
+        "bfox@gmail.com",
+        "csheen@crazy.net"
+      ]
+    },
+    "name": "Stony Brook",
+    "address": {
+      "street": "9800 Savage Rd",
+      "city": "Fort Meade",
+      "state": "MD",
+      "zip": "20755",
+      "country": "USA"
+    }
+  },
+  "deposit": 1299.0,
+  "monthlyCost": 1000.0,
+  "productCode": "xer4",
+  "productType": "L"
+}
+{
+  "name": "Basic Cable",
+  "cost": 69.5,
+  "productCode": "yp23",
+  "productType": "A"
+}
