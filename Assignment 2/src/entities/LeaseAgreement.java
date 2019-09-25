@@ -6,12 +6,12 @@ public class LeaseAgreement extends Product {
 	private DateTime startDate;
 	private DateTime endDate;
 	private Address address;
-	private String customerName;
+	private Customer customerName;
 	private double deposit;
 	private double monthlyCost;
 	
 	public LeaseAgreement(String productCode, String productType, DateTime startDate, DateTime endDate, 
-			Address address,String customerName, double deposit, double monthlyCost) {
+			Address address, Customer customerName, double deposit, double monthlyCost) {
 		super(productCode, productType);
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -45,11 +45,11 @@ public class LeaseAgreement extends Product {
 		this.address = address;
 	}
 
-	public String getCustomerName() {
+	public Customer getCustomerName() {
 		return customerName;
 	}
 
-	public void setCustomerName(String customerName) {
+	public void setCustomerName(Customer customerName) {
 		this.customerName = customerName;
 	}
 
