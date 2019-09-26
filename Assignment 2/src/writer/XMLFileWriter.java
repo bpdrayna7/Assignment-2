@@ -30,6 +30,7 @@ public class XMLFileWriter {
 			e.printStackTrace();
 		}
 		
+		//created an alias for each of the classes
 		xstream.alias("Person", Person.class);
 		xstream.alias("Customer", Customer.class);
 		xstream.alias("Lease Agreement", LeaseAgreement.class);

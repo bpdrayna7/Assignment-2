@@ -22,7 +22,8 @@ public class LeaseAgreement extends Product {
 		this.deposit = deposit;
 		this.monthlyCost = monthlyCost;
 	}
-
+	
+	//Used Strings to display DateTime attributes but added a converter for possible later use
 	public DateTime dateTimeConverter(String input) {
 		final DateTimeFormatter DATE_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd");
 		return DATE_FORMATTER.parseDateTime(input);

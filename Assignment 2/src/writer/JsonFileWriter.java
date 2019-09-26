@@ -20,6 +20,8 @@ import entities.SaleAgreement;
 public class JsonFileWriter {
 		
 	public <T> void jsonConverter(ArrayList<T> objects, String fileName) {
+		
+		//Format created to make the json file look nicer
 		Gson defaultGson = new GsonBuilder().registerTypeAdapter(DateTime.class, 
 				defaultSerializer).setPrettyPrinting().create();
 		Gson dateTimeGson = new GsonBuilder().registerTypeAdapter(DateTime.class, 
@@ -35,6 +37,7 @@ public class JsonFileWriter {
 			e.printStackTrace();
 		}
 		
+		//Loops through the ArrayList of objects and outputs them to the json file 
 		for(T object:objects) {
 			String objectOutput;
 			if(object instanceof SaleAgreement) {
@@ -48,6 +51,8 @@ public class JsonFileWriter {
 		jsonPrintWriter.close();		
 	}
 	
+	//originally we used DateTime objects to store attributes in the LeaseAgreement and SaleAgreement classes
+	//these methods were to format those, no longer needed
 	private static JsonSerializer<DateTime> defaultSerializer = new JsonSerializer<DateTime>() {
 		@Override
 		public JsonElement serialize(DateTime dateTime, Type typeOfSrc, 

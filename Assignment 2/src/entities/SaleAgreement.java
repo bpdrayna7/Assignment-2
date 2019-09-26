@@ -26,6 +26,7 @@ public class SaleAgreement extends Product {
 		this.interestRate = interestRate;
 	}
 
+	//Used Strings to display DateTime attribute but added a converter for possible later use
 	public DateTime dateTimeConverter(String input) {
 		final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
 		return DATE_TIME_FORMATTER.parseDateTime(input);

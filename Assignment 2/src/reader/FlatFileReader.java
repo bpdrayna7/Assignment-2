@@ -28,6 +28,8 @@ public class FlatFileReader {
 			
 			ArrayList<Person> people = new ArrayList<Person>();
 			
+			//Scans the .dat file line by line, tokenizing it at each semicolon and storing them into an array
+			//Attributes that are separated by commas are further tokenized and stored into arrays before creating the objects
 			while(scan.hasNext()) {
 				String line = scan.nextLine();
 				String[] attributes = line.split(";");
@@ -69,6 +71,8 @@ public class FlatFileReader {
 		}
 	}
 	
+	//Scans the .dat file line by line, tokenizing it at each semicolon and storing them into an array
+	//Attributes that are separated by commas are further tokenized and stored into arrays before creating the objects
 	public ArrayList<Customer> readCustomers(ArrayList<Person> people){
 		Scanner scan = null;
 		try {
@@ -106,6 +110,8 @@ public class FlatFileReader {
 		}
 	}
 
+	//Scans the .dat file line by line, tokenizing it at each semicolon and storing them into an array
+	//Attributes that are separated by commas are further tokenized and stored into arrays before creating the objects
 	public ArrayList<Product> readProducts(ArrayList<Customer> customers) {
 		Scanner scan = null;
 		try {
