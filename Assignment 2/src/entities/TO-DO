@@ -15,3 +15,4 @@ Add comments to abstract Service class, Agreement class
 Add comments to General, LowIncome Customer
 Add comments to Product subclasses
 Add comments to Invoice class
+(Clarify where encapsulation, abstraction, etc. are used specifically in the code)
