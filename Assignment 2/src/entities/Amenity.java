@@ -1,12 +1,12 @@
 package entities;
 
-public class Amenity extends Product {
+public class Amenity extends Service {
 
 	private String name;
 	private double cost;
 	
-	public Amenity(String productCode, String productType, String name, double cost) {
-		super(productCode, productType);
+	public Amenity(String productCode, String productType, int quantity, String name, double cost) {
+		super(productCode, productType, quantity);
 		this.name = name;
 		this.cost = cost;
 	}

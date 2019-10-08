@@ -4,7 +4,7 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-public class SaleAgreement extends Product {
+public class SaleAgreement extends Agreement {
 	private String dateTime;
 	private Address address;
 	private double totalCost;
@@ -13,10 +13,10 @@ public class SaleAgreement extends Product {
 	private int payableMonths;
 	private double interestRate;
 	
-	public SaleAgreement(String productCode, String productType, String dateTime, Address address, 
+	public SaleAgreement(String productCode, String productType, int units, String dateTime, Address address, 
 			double totalCost, double downPayment, double monthlyPayment, int payableMonths, 
 			double interestRate) {
-		super(productCode, productType);
+		super(productCode, productType, units);
 		this.dateTime = dateTime;
 		this.address = address;
 		this.totalCost = totalCost;

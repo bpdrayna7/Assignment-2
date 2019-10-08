@@ -6,182 +6,235 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 
 import entities.Address;
 import entities.Amenity;
 import entities.Customer;
+import entities.General;
+import entities.Invoice;
 import entities.LeaseAgreement;
+import entities.LowIncome;
 import entities.ParkingPass;
 import entities.Person;
 import entities.Product;
 import entities.SaleAgreement;
 
 public class FlatFileReader {
-	public ArrayList<Person> readPeople(){
+
+	public ArrayList<Invoice> readInvoice(){
 		
-		Scanner scan = null;
+		ArrayList<Invoice> invoices = new ArrayList<Invoice>();
+		Scanner scanInvoice = null;
+		
 		try {
-			scan = new Scanner(new FileReader("data/Persons.dat"));
-			scan.nextLine();
+		
+		scanInvoice = new Scanner(new FileReader("Invoices.dat"));
+		scanInvoice.nextLine();
+		
+		while(scanInvoice.hasNextLine()) {
+			String line = scanInvoice.nextLine();
+			String[] attributes = line.split(";");
 			
-			ArrayList<Person> people = new ArrayList<Person>();
+			String invoiceCode = attributes[0];
+			Customer customer = readCustomer(attributes[1]);
+			Person realtor = readPerson(attributes[2]);
+			DateTime invoiceDate = new DateTime(attributes[3]);
+			ArrayList<Product> products = readProducts(attributes, customer);
 			
-			//Scans the .dat file line by line, tokenizing it at each semicolon and storing them into an array
-			//Attributes that are separated by commas are further tokenized and stored into arrays before creating the objects
-			while(scan.hasNext()) {
-				String line = scan.nextLine();
-				String[] attributes = line.split(";");
-				
-				String personCode = attributes[0];
-				String[] name = attributes[1].split(",");
-				String firstName = name[1];
-				String lastName = name[0];
-				String[] ad = attributes[2].split(",");
-				
-				Address address = new Address(ad[0], ad[1], ad[2], ad[3], ad[4]);
-				
-				
-				ArrayList<String> emails = new ArrayList<>();
-				if(attributes.length == 4) {
-					String[] emailAddresses = attributes[3].split(",");
-					for(String e : emailAddresses) {
-						emails.add(e);
-					}
-				}
-				
-				if(emails.isEmpty()) {
-					Person p = new Person(personCode, firstName, lastName, address);
-					people.add(p);
-				}
-				else {
-					Person p = new Person(personCode, firstName, lastName, address, emails);
-					people.add(p);
-				}
-				
-			}
-			scan.close();
-			
-			return people;
-			
-		} catch (FileNotFoundException e) {
+			invoices.add(new Invoice(invoiceCode, invoiceDate, customer, realtor, products));
+		}
+		
+		scanInvoice.close();
+		return invoices;
+		}
+		catch(FileNotFoundException e) {
 			e.printStackTrace();
 			return null;
-		}
+		}	
 	}
 	
-	//Scans the .dat file line by line, tokenizing it at each semicolon and storing them into an array
-	//Attributes that are separated by commas are further tokenized and stored into arrays before creating the objects
-	public ArrayList<Customer> readCustomers(ArrayList<Person> people){
-		Scanner scan = null;
+	
+	public Customer readCustomer(String customerCode) {
+		
+		Scanner scanCustomer = null;
+		
 		try {
-			scan = new Scanner(new FileReader("data/Customers.dat"));
-			scan.nextLine();
-		
-			ArrayList<Customer> customers = new ArrayList<Customer>();
-		
-			while(scan.hasNext()) {
-				String line = scan.nextLine();
+			
+			scanCustomer = new Scanner(new FileReader("Customers.dat"));
+			scanCustomer.nextLine();
+			
+			while(scanCustomer.hasNextLine()) {
+				String line = scanCustomer.nextLine();
 				String[] attributes = line.split(";");
 				
-				String customerCode = attributes[0];
-				String type = attributes[1];
-				Person primaryContact = null;
-				for(Person p:people) {
-					if(p.getPersonCode().equals(attributes[2])) {
-						primaryContact = p;
+				if(attributes[0].equals(customerCode)){
+					
+					String code = attributes[0];
+					String type = attributes[1];
+					Person primaryContact = readPerson(attributes[2]);
+					String name = attributes[3];
+					
+					String[] addressParts = attributes[4].split(",");
+					Address address = new Address(addressParts[0], addressParts[1], addressParts[2], addressParts[3], addressParts[4]);
+					
+					Customer customer = null;
+					
+					switch(type) {
+					case "G":
+						customer = new General(code, type, primaryContact, name, address);
 						break;
-					}
-				}
-				String name = attributes[3];
-				String[] ad = attributes[4].split(",");
-				Address address = new Address(ad[0], ad[1], ad[2], ad[3], ad[4]);
-
-				Customer c = new Customer(customerCode, type, primaryContact, name, address);
-				customers.add(c);
-			}
-			scan.close();
-			return customers;
-		} 
-		catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	//Scans the .dat file line by line, tokenizing it at each semicolon and storing them into an array
-	//Attributes that are separated by commas are further tokenized and stored into arrays before creating the objects
-	public ArrayList<Product> readProducts(ArrayList<Customer> customers) {
-		Scanner scan = null;
-		try {
-			scan = new Scanner(new FileReader("data/Products.dat"));
-			scan.nextLine();
-		
-			ArrayList<Product> products = new ArrayList<Product>();
-		
-			while(scan.hasNext()) {
-				String line = scan.nextLine();
-				String[] attributes = line.split(";");
-				String productCode = attributes[0];
-				String productType = attributes[1];
-				Product p = null;
-				String[] ad = null;
-				Address address = null;
-				switch(productType) {
 					case "L":
-						String startDate = attributes[2];
-						String endDate = attributes[3];
-						ad = attributes[4].split(",");
-						address = new Address(ad[0], ad[1], ad[2], ad[3], ad[4]);
-						Customer customerName = null;
-						for(Customer c:customers) {
-							if(c.getName().equals(attributes[5])) {
-								customerName = c;
-								break;
-							}
-						}
-						double deposit = Double.parseDouble(attributes[6]);
-						double monthlyCost = Double.parseDouble(attributes[7]);
-						p = new LeaseAgreement(productCode, productType, startDate, endDate, 
-								address, customerName, deposit, monthlyCost);
-						break;
-						
-					case "S":
-						String dateTime = attributes[2];
-						ad = attributes[3].split(",");
-						address = new Address(ad[0], ad[1], ad[2], ad[3], ad[4]);
-						double totalCost = Double.parseDouble(attributes[4]);
-						double downPayment = Double.parseDouble(attributes[5]);
-						double monthlyPayment = Double.parseDouble(attributes[6]);
-						int payableMonths = Integer.parseInt(attributes[7]);
-						double interestRate = Double.parseDouble(attributes[8]);
-						p = new SaleAgreement(productCode, productType, dateTime, address, totalCost,
-								downPayment, monthlyPayment, payableMonths, interestRate);
-						break;
-						
-					case "P":
-						double parkingFee = Double.parseDouble(attributes[2]);
-						p = new ParkingPass(productCode, productType, parkingFee);
-						break;
-						
-					case "A":
-						String name = attributes[2];
-						double cost = Double.parseDouble(attributes[3]);
-						p = new Amenity(productCode, productType, name, cost);
-						break;
-						
-					default:
-						break;
+						customer = new LowIncome(code, type, primaryContact, name, address);
+					}
+					
+					scanCustomer.close();
+					return customer;
+					
 				}
-				products.add(p);
+				
 			}
-			scan.close();
-			return products;
-		} 
-		catch (FileNotFoundException e) {
+			
+		}
+		catch(FileNotFoundException e) {
 			e.printStackTrace();
 			return null;
 		}
+		
+		scanCustomer.close();
+		return null;
 	}
+	
+	
+	public Person readPerson(String personCode) {
+		
+		Scanner scanPerson = null;
+		
+		try {
+			
+			scanPerson = new Scanner(new FileReader("Persons.dat"));
+			scanPerson.nextLine();
+			
+			while(scanPerson.hasNextLine()) {
+				String line = scanPerson.nextLine();
+				String[] attributes = line.split(";");
+				
+				if(attributes[0].equals(personCode)) {
+					scanPerson.close();
+					
+					String code = attributes[0];
+					String[] nameParts = attributes[1].split(",");
+					String firstName = nameParts[1];
+					String lastName = nameParts[0];
+					
+					String[] addressParts = attributes[2].split(",");
+					Address address = new Address(addressParts[0], addressParts[1], addressParts[2], addressParts[3], addressParts[4]);
+					
+					ArrayList<String> emails = new ArrayList<String>();
+					if(attributes.length == 4) {
+						String[] emailList = attributes[3].split(",");
+						for(String email : emailList) {
+							emails.add(email);
+						}
+						return new Person(code, firstName, lastName, address, emails);
+					}
+					else {
+						return new Person(code, firstName, lastName, address);
+					}	
+				}
+			}	
+		}
+		catch(FileNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		scanPerson.close();
+		return null;
+	}
+	
+	public ArrayList<Product> readProducts(String[] attributes, Customer customer){
+		
+		Scanner scanProducts = null;
+		ArrayList<Product> productList = new ArrayList<Product>();
+		
+		try {
+			
+			String[] products = attributes[4].split(",");
+			
+			
+			
+			for(String product : products) {
+				scanProducts = new Scanner(new FileReader("Products.dat"));
+				scanProducts.nextLine();
+				
+				String[] productParts = product.split(":");
+				
+				
+				while(scanProducts.hasNextLine()) {
+					
+					String line = scanProducts.nextLine();
+					String[] elements = line.split(";");
+					String[] addressParts;
+					Address address;
+					
+					if(elements[0].equals(productParts[0])) {
+						switch(elements[1]) {
+						case "A":
+							Amenity amenity = new Amenity(elements[0], elements[1], Integer.parseInt(productParts[1]), elements[2], Double.parseDouble(elements[3]));
+							
+							break;
+						case "S":
+							addressParts = elements[3].split(",");
+							address = new Address(addressParts[0], addressParts[1], addressParts[2], addressParts[3], addressParts[4]);
+							
+							SaleAgreement saleAgreement = new SaleAgreement(elements[0], elements[1], Integer.parseInt(productParts[1]), elements[2], address, 
+									Double.parseDouble(elements[4]), Double.parseDouble(elements[5]), Double.parseDouble(elements[6]),
+									Integer.parseInt(elements[7]), Double.parseDouble(elements[8]));
+							
+							break;
+						case "L":
+							addressParts = elements[4].split(",");
+							address = new Address(addressParts[0], addressParts[1], addressParts[2], addressParts[3], addressParts[4]);
+									
+							LeaseAgreement leaseAgreement = new LeaseAgreement(elements[0], elements[1], Integer.parseInt(productParts[1]),
+									elements[2], elements[3], address, customer, Double.parseDouble(elements[6]), Double.parseDouble(elements[7]));
+							
+							
+							break;
+						case "P":
+							
+//							ParkingPass parkingPass = new ParkingPass(elements[0], elements[1], Integer.parseInt(productParts[1]), elements[2], )
+							
+							break;
+						}
+						
+					}
+					
+				}
+			}
+			
+			
+		}
+		catch(FileNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		scanProducts.close();
+		return null;
+	}
+	
+	
+	public Customer findCustomer(String productCode) {
+		
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
 }
