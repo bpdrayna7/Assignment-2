@@ -1,0 +1,17 @@
+Add methods for computing subtotal, grand total, tax to each Product subclass
+Add methods for computing invoice total to Invoice class
+
+ConsoleWriter class - format invoice report outputs
+Finish InvoiceReport driver (add ConsoleWriter object)
+
+Make test case
+
+Add comments to FlatFileReader
+Add comments to InvoiceReport
+Add comments to ConsoleWriter
+Add comments to Product interface
+Add comments to abstract Customer class
+Add comments to abstract Service class, Agreement class
+Add comments to General, LowIncome Customer
+Add comments to Product subclasses
+Add comments to Invoice class

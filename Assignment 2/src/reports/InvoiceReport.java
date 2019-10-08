@@ -18,7 +18,8 @@ public class InvoiceReport {
 		}
 		
 		//ConsoleWriter object
-		
+			//Format output of invoices into general invoice report
+			//For-each loop (for each invoice) that outputs detailed invoice report
 
 	}
 
