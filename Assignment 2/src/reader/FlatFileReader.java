@@ -8,6 +8,7 @@ import java.util.Scanner;
 import org.joda.time.DateTime;
 
 import entities.Address;
+import entities.Agreement;
 import entities.Amenity;
 import entities.Customer;
 import entities.General;
@@ -28,7 +29,7 @@ public class FlatFileReader {
 		
 		try {
 		
-		scanInvoice = new Scanner(new FileReader("Invoices.dat"));
+		scanInvoice = new Scanner(new FileReader("data/Invoices.dat"));
 		scanInvoice.nextLine();
 		
 		while(scanInvoice.hasNextLine()) {
@@ -42,6 +43,7 @@ public class FlatFileReader {
 			ArrayList<Product> products = readProducts(attributes, customer);
 			
 			invoices.add(new Invoice(invoiceCode, invoiceDate, customer, realtor, products));
+			
 		}
 		
 		scanInvoice.close();
@@ -60,7 +62,7 @@ public class FlatFileReader {
 		
 		try {
 			
-			scanCustomer = new Scanner(new FileReader("Customers.dat"));
+			scanCustomer = new Scanner(new FileReader("data/Customers.dat"));
 			scanCustomer.nextLine();
 			
 			while(scanCustomer.hasNextLine()) {
@@ -111,7 +113,7 @@ public class FlatFileReader {
 		
 		try {
 			
-			scanPerson = new Scanner(new FileReader("Persons.dat"));
+			scanPerson = new Scanner(new FileReader("data/Persons.dat"));
 			scanPerson.nextLine();
 			
 			while(scanPerson.hasNextLine()) {
@@ -152,6 +154,9 @@ public class FlatFileReader {
 		return null;
 	}
 	
+	
+	
+	
 	public ArrayList<Product> readProducts(String[] attributes, Customer customer){
 		
 		Scanner scanProducts = null;
@@ -164,7 +169,7 @@ public class FlatFileReader {
 			
 			
 			for(String product : products) {
-				scanProducts = new Scanner(new FileReader("Products.dat"));
+				scanProducts = new Scanner(new FileReader("data/Products.dat"));
 				scanProducts.nextLine();
 				
 				String[] productParts = product.split(":");
@@ -181,7 +186,8 @@ public class FlatFileReader {
 						switch(elements[1]) {
 						case "A":
 							Amenity amenity = new Amenity(elements[0], elements[1], Integer.parseInt(productParts[1]), elements[2], Double.parseDouble(elements[3]));
-							
+							System.out.println("TEST");
+							productList.add(amenity);
 							break;
 						case "S":
 							addressParts = elements[3].split(",");
@@ -190,7 +196,8 @@ public class FlatFileReader {
 							SaleAgreement saleAgreement = new SaleAgreement(elements[0], elements[1], Integer.parseInt(productParts[1]), elements[2], address, 
 									Double.parseDouble(elements[4]), Double.parseDouble(elements[5]), Double.parseDouble(elements[6]),
 									Integer.parseInt(elements[7]), Double.parseDouble(elements[8]));
-							
+							System.out.println("TEST");
+							productList.add(saleAgreement);
 							break;
 						case "L":
 							addressParts = elements[4].split(",");
@@ -199,12 +206,25 @@ public class FlatFileReader {
 							LeaseAgreement leaseAgreement = new LeaseAgreement(elements[0], elements[1], Integer.parseInt(productParts[1]),
 									elements[2], elements[3], address, customer, Double.parseDouble(elements[6]), Double.parseDouble(elements[7]));
 							
-							
+							System.out.println("TEST");
+							productList.add(leaseAgreement);
 							break;
 						case "P":
-							
-//							ParkingPass parkingPass = new ParkingPass(elements[0], elements[1], Integer.parseInt(productParts[1]), elements[2], )
-							
+							ParkingPass parkingPass = null;
+							if(productParts.length == 3) {
+								for(int i = 0; i < productList.size(); i++) {
+									if(productList.get(i).getProductCode().equals(productParts[2])) {
+										parkingPass = new ParkingPass(elements[0], elements[1], Integer.parseInt(productParts[1]), 
+												Double.parseDouble(elements[2]), (Agreement)productList.get(i));
+									}
+								}
+							}
+							else {
+								parkingPass = new ParkingPass(elements[0], elements[1], Integer.parseInt(productParts[1]), 
+										Double.parseDouble(elements[2]));
+							}
+							System.out.println("TEST");
+							productList.add(parkingPass);
 							break;
 						}
 						
@@ -213,23 +233,18 @@ public class FlatFileReader {
 				}
 			}
 			
+			scanProducts.close();
+			return productList;
+			
 			
 		}
 		catch(FileNotFoundException e) {
 			e.printStackTrace();
 			return null;
 		}
-		
-		scanProducts.close();
-		return null;
 	}
 	
 	
-	public Customer findCustomer(String productCode) {
-		
-		
-		return null;
-	}
 	
 	
 	

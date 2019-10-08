@@ -21,6 +21,7 @@ public class Agreement implements Product{
 		this.units = units;
 	}
 
+	@Override
 	public String getProductCode() {
 		return productCode;
 	}

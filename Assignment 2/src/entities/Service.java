@@ -23,6 +23,7 @@ public class Service implements Product{
 		this.quantity = quantity;
 	}
 
+	@Override
 	public String getProductCode() {
 		return productCode;
 	}

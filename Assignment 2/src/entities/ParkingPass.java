@@ -11,6 +11,10 @@ public class ParkingPass extends Service {
 		this.agreement = agreement;
 	}
 	
+	public ParkingPass(String productCode, String productType, int quantity, double parkingFee) {
+		super(productCode, productType, quantity);
+		this.parkingFee = parkingFee;
+	}
 	
 
 	public double getParkingFee() {
