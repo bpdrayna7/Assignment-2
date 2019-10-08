@@ -186,7 +186,6 @@ public class FlatFileReader {
 						switch(elements[1]) {
 						case "A":
 							Amenity amenity = new Amenity(elements[0], elements[1], Integer.parseInt(productParts[1]), elements[2], Double.parseDouble(elements[3]));
-							System.out.println("TEST");
 							productList.add(amenity);
 							break;
 						case "S":
@@ -196,7 +195,6 @@ public class FlatFileReader {
 							SaleAgreement saleAgreement = new SaleAgreement(elements[0], elements[1], Integer.parseInt(productParts[1]), elements[2], address, 
 									Double.parseDouble(elements[4]), Double.parseDouble(elements[5]), Double.parseDouble(elements[6]),
 									Integer.parseInt(elements[7]), Double.parseDouble(elements[8]));
-							System.out.println("TEST");
 							productList.add(saleAgreement);
 							break;
 						case "L":
@@ -206,7 +204,6 @@ public class FlatFileReader {
 							LeaseAgreement leaseAgreement = new LeaseAgreement(elements[0], elements[1], Integer.parseInt(productParts[1]),
 									elements[2], elements[3], address, customer, Double.parseDouble(elements[6]), Double.parseDouble(elements[7]));
 							
-							System.out.println("TEST");
 							productList.add(leaseAgreement);
 							break;
 						case "P":
@@ -223,7 +220,6 @@ public class FlatFileReader {
 								parkingPass = new ParkingPass(elements[0], elements[1], Integer.parseInt(productParts[1]), 
 										Double.parseDouble(elements[2]));
 							}
-							System.out.println("TEST");
 							productList.add(parkingPass);
 							break;
 						}
