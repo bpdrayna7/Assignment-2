@@ -23,6 +23,28 @@ public class LeaseAgreement extends Agreement {
 		this.monthlyCost = monthlyCost;
 	}
 	
+	//Gets the difference in milliseconds then converts it to months before computing the subtotal
+	@Override
+	public double computeSubtotal(DateTime invoiceDate) {
+		DateTime startDate = dateTimeConverter(this.startDate);
+		DateTime endDate = dateTimeConverter(this.endDate);
+		if(invoiceDate.monthOfYear() == endDate.monthOfYear()) {
+			return this.monthlyCost - this.deposit;
+		}
+		else if(invoiceDate.monthOfYear() == startDate.monthOfYear()) {
+			return this.monthlyCost + this.deposit;
+		}
+		else {
+			return this.monthlyCost;
+		}
+	}
+
+	@Override
+	public double computeGrandtotal(Customer customer, double subtotal) {
+		return (subtotal + subtotal*.06*customer.getTax())*(1-customer.getDiscount())
+				- customer.getCredit() + customer.getAdditionalFee();
+	}
+
 	//Used Strings to display DateTime attributes but added a converter for possible later use
 	public DateTime dateTimeConverter(String input) {
 		final DateTimeFormatter DATE_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd");

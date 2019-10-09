@@ -1,5 +1,7 @@
 package entities;
 
+import org.joda.time.DateTime;
+
 public class ParkingPass extends Service {
 
 	private double parkingFee;
@@ -16,6 +18,19 @@ public class ParkingPass extends Service {
 		this.parkingFee = parkingFee;
 	}
 	
+	@Override
+	public double computeSubtotal(DateTime invoiceDate) {
+		int quantity = this.getQuantity();
+		if(this.agreement != null) {
+			quantity--;
+		}
+		return this.parkingFee*quantity;
+	}
+
+	@Override
+	public double computeGrandtotal(Customer customer, double subtotal) {
+		return (subtotal + subtotal*.04*customer.getTax())*(1-customer.getDiscount());
+	}
 
 	public double getParkingFee() {
 		return parkingFee;

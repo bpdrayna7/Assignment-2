@@ -5,6 +5,7 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 public class SaleAgreement extends Agreement {
+
 	private String dateTime;
 	private Address address;
 	private double totalCost;
@@ -26,6 +27,24 @@ public class SaleAgreement extends Agreement {
 		this.interestRate = interestRate;
 	}
 
+	@Override
+	public double computeSubtotal(DateTime invoiceDate) {
+		DateTime startDate = dateTimeConverter(this.dateTime);
+		int numOfMonths = (int) Math.floor((invoiceDate.getMillis() - startDate.getMillis())/(2.628*Math.pow(10, 9)));
+		if(invoiceDate.monthOfYear() == startDate.monthOfYear()) {
+			return this.monthlyPayment + this.downPayment + (this.downPayment)*this.interestRate;
+		}
+		else {
+			return this.monthlyPayment + (this.totalCost - (this.downPayment + this.monthlyPayment*numOfMonths))*this.interestRate;
+		}
+	}
+
+	@Override
+	public double computeGrandtotal(Customer customer, double subtotal) {
+		return (subtotal + subtotal*.06*customer.getTax())*(1-customer.getDiscount())
+				- customer.getCredit() + customer.getAdditionalFee();
+	}
+	
 	//Used Strings to display DateTime attribute but added a converter for possible later use
 	public DateTime dateTimeConverter(String input) {
 		final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");

@@ -1,5 +1,7 @@
 package entities;
 
+import org.joda.time.DateTime;
+
 public class Service implements Product{
 
 	private String productCode;
@@ -47,13 +49,13 @@ public class Service implements Product{
 	}
 
 	@Override
-	public double computeSubtotal() {
+	public double computeSubtotal(DateTime invoiceDate) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public double computeGrandtotal() {
+	public double computeGrandtotal(Customer customer, double subtotal) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

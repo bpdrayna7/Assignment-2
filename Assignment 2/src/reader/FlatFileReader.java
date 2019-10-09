@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import entities.Address;
 import entities.Agreement;
@@ -28,7 +30,7 @@ public class FlatFileReader {
 		Scanner scanInvoice = null;
 		
 		try {
-		
+		final DateTimeFormatter DATE_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd");
 		scanInvoice = new Scanner(new FileReader("data/Invoices.dat"));
 		scanInvoice.nextLine();
 		
@@ -39,7 +41,7 @@ public class FlatFileReader {
 			String invoiceCode = attributes[0];
 			Customer customer = readCustomer(attributes[1]);
 			Person realtor = readPerson(attributes[2]);
-			DateTime invoiceDate = new DateTime(attributes[3]);
+			DateTime invoiceDate = new DateTime(DATE_FORMATTER.parseDateTime(attributes[3]));
 			ArrayList<Product> products = readProducts(attributes, customer);
 			
 			invoices.add(new Invoice(invoiceCode, invoiceDate, customer, realtor, products));
