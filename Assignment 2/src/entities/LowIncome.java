@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class LowIncome extends Customer{
 
 	public LowIncome(String customerCode, String type, Person primaryContact, String name, Address address) {
@@ -13,9 +15,9 @@ public class LowIncome extends Customer{
 	}
 
 	@Override
-	public double getDiscount() {
-		//Low income customers are exempt from all taxes
-		return 0.1;
+	public double getDiscount(double subtotal) {
+		//Low income customers get a 10% discount
+		return subtotal*0.1;
 	}
 
 	@Override
@@ -25,12 +27,14 @@ public class LowIncome extends Customer{
 	}
 
 	@Override
-	public double getCredit() {
+	public double getCredit(ArrayList<Product> products) {
 		//Low income customers receive a $1000/month housing credit
-		return 1000;
+		for(Product p:products) {
+			if(p instanceof LeaseAgreement || p instanceof SaleAgreement) {
+				return 1000;
+			}
+		}
+		return 0;
 	}
 
-	
-	
-	
 }

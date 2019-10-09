@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.ArrayList;
+
 import org.joda.time.DateTime;
 
 public class ParkingPass extends Service {
@@ -28,8 +30,8 @@ public class ParkingPass extends Service {
 	}
 
 	@Override
-	public double computeGrandtotal(Customer customer, double subtotal) {
-		return (subtotal + subtotal*.04*customer.getTax())*(1-customer.getDiscount());
+	public double computeGrandtotal(Customer customer, ArrayList<Product> products, double subtotal) {
+		return (subtotal + subtotal*.04*customer.getTax())*(1-customer.getDiscount(subtotal)) + customer.getAdditionalFee();
 	}
 
 	public double getParkingFee() {

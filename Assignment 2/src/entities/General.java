@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class General extends Customer{
 
 	public General(String customerCode, String type, Person primaryContact, String name, Address address) {
@@ -13,7 +15,7 @@ public class General extends Customer{
 	}
 
 	@Override
-	public double getDiscount() {
+	public double getDiscount(double subtotal) {
 		//General customers receive no additional discount
 		return 0;
 	}
@@ -25,7 +27,7 @@ public class General extends Customer{
 	}
 
 	@Override
-	public double getCredit() {
+	public double getCredit(ArrayList<Product> products) {
 		//General customers receive no housing credit
 		return 0;
 	}

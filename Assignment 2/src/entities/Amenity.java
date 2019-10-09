@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.ArrayList;
+
 import org.joda.time.DateTime;
 
 public class Amenity extends Service {
@@ -18,10 +20,15 @@ public class Amenity extends Service {
 		return this.cost*this.getQuantity();
 	}
 
-	//HOW TO ADD 5% OFF W/ LEASE AGREEMENT
 	@Override
-	public double computeGrandtotal(Customer customer, double subtotal) {
-		return subtotal + subtotal*.04*customer.getTax();
+	public double computeGrandtotal(Customer customer, ArrayList<Product> products, double subtotal) {
+		for(Product p: products) {
+			if(p instanceof LeaseAgreement) {
+				double newSubtotal = subtotal*.95;
+				return newSubtotal + newSubtotal*.04*customer.getTax() + customer.getAdditionalFee();
+			}
+		}
+		return subtotal + subtotal*.04*customer.getTax() + customer.getAdditionalFee() - customer.getDiscount(subtotal);
 	}
 	
 	public String getName() {
@@ -43,6 +50,5 @@ public class Amenity extends Service {
 	@Override
 	public String toString() {
 		return String.format("%s %s %s $%s", this.getProductCode(), this.getProductType(), name, cost);
-	}
-	
+	}	
 }

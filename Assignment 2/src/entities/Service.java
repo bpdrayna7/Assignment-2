@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.ArrayList;
+
 import org.joda.time.DateTime;
 
 public class Service implements Product{
@@ -55,7 +57,7 @@ public class Service implements Product{
 	}
 
 	@Override
-	public double computeGrandtotal(Customer customer, double subtotal) {
+	public double computeGrandtotal(Customer customer, ArrayList<Product> products, double subtotal) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -26,6 +26,9 @@ public class Person {
 		this.address = address;
 	}
 	
+	public String toString() {
+		return this.lastName + ", " + this.firstName;
+	}
 	
 	public String getPersonCode() {
 		return personCode;

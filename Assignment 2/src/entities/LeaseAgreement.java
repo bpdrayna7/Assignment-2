@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.ArrayList;
+
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -23,7 +25,6 @@ public class LeaseAgreement extends Agreement {
 		this.monthlyCost = monthlyCost;
 	}
 	
-	//Gets the difference in milliseconds then converts it to months before computing the subtotal
 	@Override
 	public double computeSubtotal(DateTime invoiceDate) {
 		DateTime startDate = dateTimeConverter(this.startDate);
@@ -40,9 +41,9 @@ public class LeaseAgreement extends Agreement {
 	}
 
 	@Override
-	public double computeGrandtotal(Customer customer, double subtotal) {
-		return (subtotal + subtotal*.06*customer.getTax())*(1-customer.getDiscount())
-				- customer.getCredit() + customer.getAdditionalFee();
+	public double computeGrandtotal(Customer customer, ArrayList<Product> products, double subtotal) {
+		return (subtotal + subtotal*.06*customer.getTax())*(1-customer.getDiscount(subtotal))
+				- customer.getCredit(products) + customer.getAdditionalFee();
 	}
 
 	//Used Strings to display DateTime attributes but added a converter for possible later use
@@ -98,5 +99,5 @@ public class LeaseAgreement extends Agreement {
 	public void setMonthlyCost(double monthlyCost) {
 		this.monthlyCost = monthlyCost;
 	}
-		
+	
 }
