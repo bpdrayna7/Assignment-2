@@ -1,0 +1,10 @@
+Invoice  Customer                                 Realtor              Subtotal      Fees        Taxes       Discount    Total         
+INV001   Jones Industries [General]               Free,  Gavin         $     4817.32 $      0.00 $    282.81 $     -0.00 $       5100.13
+INV002   Jackson Development [Low Income]         Crouch,  Peter       $     3350.00 $     50.75 $      0.00 $  -1335.00 $       2065.75
+INV003   Tennis Tools [General]                   Fox,  Jack           $      228.00 $      0.00 $      9.12 $     -0.00 $        237.12
+INV004   Stonebridge [General]                    Grant,  Bud          $     4342.50 $      0.00 $    257.70 $     -0.00 $       4600.20
+INV005   Microsoft [Low Income]                   Campos,  Pablo       $      500.00 $     50.75 $      0.00 $    -50.00 $        500.75
+=========================================================================================================================================
+Grand Total                                                            $    13237.82 $    101.50 $    549.63 $  -1385.00 $      12503.95
+
+

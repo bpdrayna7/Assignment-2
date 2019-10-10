@@ -43,7 +43,7 @@ public class ConsoleWriter {
 		}
 		summary.append("=========================================================================================================================================\n");
 		summary.append(String.format("%-70s $%12.2f $%10.2f $%10.2f $%10.2f $%14.2f\n", "Grand Total",
-				subtotalGrandTotal, taxGrandTotal, feesGrandTotal, discountGrandTotal, grandtotal));
+				subtotalGrandTotal, feesGrandTotal, taxGrandTotal, discountGrandTotal, grandtotal));
 		System.out.println(summary);
 		System.out.println(detailedReports);
 	}
