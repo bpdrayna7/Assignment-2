@@ -37,7 +37,10 @@ public abstract class Customer {
 		return this.name + " [" + this.type + "]";
 	}
 	
-	//public String toDetailedString()
+	public String toDetailedString() {
+		return String.format("%s(%s)\n [%s]\n %s\n %s\n %s, %s %s %s\n", this.getName(), this.getCustomerCode(), this.getType(), this.getPrimaryContact().toString(),
+				this.getAddress().getStreet(), this.getAddress().getCity(), this.getAddress().getState(), this.getAddress().getZip(), this.getAddress().getCountry());
+	}
 	
 	public String getCustomerCode() {
 		return customerCode;
