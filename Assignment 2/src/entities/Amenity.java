@@ -2,7 +2,7 @@ package entities;
 
 import java.util.ArrayList;
 
-import org.joda.time.DateTime;
+import entities.LeaseAgreement;
 
 public class Amenity extends Service {
 
@@ -15,20 +15,18 @@ public class Amenity extends Service {
 		this.cost = cost;
 	}
 
-	@Override
-	public double computeSubtotal(DateTime invoiceDate) {
+	public double computeSubtotal(ArrayList<Product> products) {
+		for(Product p:products) {
+			if(p instanceof LeaseAgreement) {
+				return this.cost*.95*this.getQuantity();
+			}
+		}
 		return this.cost*this.getQuantity();
 	}
 
 	@Override
 	public double computeGrandtotal(Customer customer, ArrayList<Product> products, double subtotal) {
-		for(Product p: products) {
-			if(p instanceof LeaseAgreement) {
-				double newSubtotal = subtotal*.95;
-				return newSubtotal + newSubtotal*.04*customer.getTax() + customer.getAdditionalFee();
-			}
-		}
-		return subtotal + subtotal*.04*customer.getTax() + customer.getAdditionalFee() - customer.getDiscount(subtotal);
+		return subtotal + subtotal*.04*customer.getTax();
 	}
 	
 	public String getName() {

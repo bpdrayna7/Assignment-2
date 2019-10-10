@@ -9,27 +9,41 @@ import entities.SaleAgreement;
 public class ConsoleWriter {
 	public void writeInvoice(ArrayList<Invoice> invoices) {
 		StringBuilder summary = new StringBuilder();
-		summary.append(String.format("%-8s %-40s %-20s %-13s %-9s %-11s %-11s %-14s\n", 
+		summary.append(String.format("%-8s %-40s %-20s %-13s %-11s %-11s %-11s %-14s\n", 
 				"Invoice", "Customer", "Realtor", "Subtotal", "Fees", "Taxes", "Discount", "Total"));
 		StringBuilder detailedReports = new StringBuilder();
+		double subtotalGrandTotal = 0;
+		double taxGrandTotal = 0;
+		double feesGrandTotal = 0;
+		double discountGrandTotal = 0;
+		double grandtotal = 0;
 		for(Invoice i:invoices) {
 			//Writes summary
-			double subtotalTotal = 0;
+			double subtotal = 0;
 			double taxTotal = 0;
-			for(Product p:i.getProducts()) {
-				double subtotal = p.computeSubtotal(i.getInvoiceDate());
-				subtotalTotal += subtotal;
-				taxTotal += subtotal * p.getTax();
-				
+			for(Product p: i.getProducts()) {
+				subtotal += i.computeSubtotal(p, i.getProducts());
+				taxTotal += i.computeSubtotal(p, i.getProducts())*p.getTax();
 			}
-			double grandtotal = subtotalTotal + taxTotal*i.getCustomer().getTax() + i.getCustomer().getAdditionalFee() - i.getCustomer().getDiscount(subtotalTotal);
-			
-			summary.append(String.format("%-8s %-40s %-20s $%12.2f $%8.2f $%10.2f $%10.2f $%14.2f\n",
-					i.getInvoiceCode(), i.getCustomer().toSummaryString(), i.getRealtor().toString(), subtotalTotal, i.getCustomer().getAdditionalFee(),
-					taxTotal*i.getCustomer().getTax(), i.getCustomer().getDiscount(subtotalTotal)*-1, grandtotal));
+			taxTotal *= i.getCustomer().getTax();
+			double fees = i.getCustomer().getAdditionalFee();
+			double discount = (i.getCustomer().getCredit(i.getProducts()) + i.getCustomer().getDiscount(subtotal))*-1;
+			double total = subtotal + fees + taxTotal + discount;
+
+			summary.append(String.format("%-8s %-40s %-20s $%12.2f $%10.2f $%10.2f $%10.2f $%14.2f\n",
+					i.getInvoiceCode(), i.getCustomer().toSummaryString(), i.getRealtor().toString(), subtotal, fees, taxTotal,
+					discount, total));
+			subtotalGrandTotal += subtotal;
+			taxGrandTotal += taxTotal;
+			feesGrandTotal += fees;
+			discountGrandTotal += discount;
+			grandtotal += total;
 			//Writes detailed reports
 			
 		}
+		summary.append("=========================================================================================================================================\n");
+		summary.append(String.format("%-70s $%12.2f $%10.2f $%10.2f $%10.2f $%14.2f\n", "Grand Total",
+				subtotalGrandTotal, taxGrandTotal, feesGrandTotal, discountGrandTotal, grandtotal));
 		System.out.println(summary);
 		System.out.println(detailedReports);
 	}

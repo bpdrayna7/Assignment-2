@@ -30,13 +30,13 @@ public class LeaseAgreement extends Agreement {
 		DateTime startDate = dateTimeConverter(this.startDate);
 		DateTime endDate = dateTimeConverter(this.endDate);
 		if(invoiceDate.monthOfYear() == endDate.monthOfYear()) {
-			return this.monthlyCost - this.deposit;
+			return this.monthlyCost*this.getUnits() - this.deposit;
 		}
 		else if(invoiceDate.monthOfYear() == startDate.monthOfYear()) {
-			return this.monthlyCost + this.deposit;
+			return this.monthlyCost*this.getUnits() + this.deposit;
 		}
 		else {
-			return this.monthlyCost;
+			return this.monthlyCost*this.getUnits();
 		}
 	}
 

@@ -21,6 +21,55 @@ public class Invoice {
 		this.realtor = realtor;
 		this.products = products;
 	}
+	
+	public double computeSubtotal(Product product, ArrayList<Product> products) {
+		if(product instanceof Amenity) {
+			for(Product p:products) {
+				if(p instanceof LeaseAgreement) {
+					return ((Amenity) product).getCost() * .95 * ((Amenity) product).getQuantity();
+				}
+			}
+			return ((Amenity) product).getCost() * ((Amenity) product).getQuantity();
+		}
+		
+		else if(product instanceof ParkingPass) {
+			if(((ParkingPass) product).getAgreement() != null) {
+				if(((ParkingPass) product).getQuantity() < ((ParkingPass) product).getAgreement().getUnits()) {
+					return 0;
+				}
+				return (((ParkingPass) product).getQuantity()-((ParkingPass) product).getAgreement().getUnits())
+						*((ParkingPass) product).getParkingFee();
+			}
+			return ((ParkingPass) product).getQuantity()*((ParkingPass) product).getParkingFee();
+		}
+		
+		//might not work if start/end date month is same as invoice but not same year
+		else if(product instanceof LeaseAgreement) {
+			if(((LeaseAgreement) product).dateTimeConverter(((LeaseAgreement) product).getStartDate()).monthOfYear() == 
+					this.invoiceDate.monthOfYear()) {
+				return ((LeaseAgreement) product).getMonthlyCost()*((LeaseAgreement) product).getUnits() + ((LeaseAgreement) product).getDeposit();
+			}
+			else if(((LeaseAgreement) product).dateTimeConverter(((LeaseAgreement) product).getEndDate()).monthOfYear() == 
+					this.invoiceDate.monthOfYear()) {
+				return ((LeaseAgreement) product).getMonthlyCost()*((LeaseAgreement) product).getUnits() - ((LeaseAgreement) product).getDeposit();
+			}
+			return ((LeaseAgreement) product).getMonthlyCost()*((LeaseAgreement) product).getUnits();
+		}
+		else if (product instanceof SaleAgreement) {
+			return ((SaleAgreement) product).computeSubtotal(this.invoiceDate);
+		}
+		else {
+			return -1;
+		}
+	}
+	
+//	public double computeGrandtotal(ArrayList<Product> products) {
+//		double grandtotal = 0;
+//		for(Product p:products) {
+//			grandtotal += p.computeGrandtotal(this.customer, products, computeSubtotal(p));
+//		}
+//		return grandtotal;
+//	}
 
 	public String getInvoiceCode() {
 		return invoiceCode;

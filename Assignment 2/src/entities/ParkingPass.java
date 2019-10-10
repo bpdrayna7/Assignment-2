@@ -24,7 +24,12 @@ public class ParkingPass extends Service {
 	public double computeSubtotal(DateTime invoiceDate) {
 		int quantity = this.getQuantity();
 		if(this.agreement != null) {
-			quantity--;
+			if(quantity < this.agreement.getUnits()) {
+				quantity = 0;
+			}
+			else {
+				quantity-=this.agreement.getUnits();
+			}
 		}
 		return this.parkingFee*quantity;
 	}

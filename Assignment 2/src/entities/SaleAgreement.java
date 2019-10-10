@@ -33,14 +33,9 @@ public class SaleAgreement extends Agreement {
 	public double computeSubtotal(DateTime invoiceDate) {
 		double subtotal = 0;
 		DateTime startDate = dateTimeConverter(this.dateTime);
-		int numOfMonths = (int) Math.floor((invoiceDate.getMillis() - startDate.getMillis())/(2.628*Math.pow(10, 9)));
-		if(invoiceDate.monthOfYear() == startDate.monthOfYear()) {
-			subtotal = this.monthlyPayment + this.downPayment + (this.downPayment)*this.interestRate;
-		}
-		else {
-			subtotal = this.monthlyPayment + (this.totalCost - (this.downPayment + this.monthlyPayment*numOfMonths))*this.interestRate;
-		}
-		return subtotal*this.getUnits();
+		double numOfMonths = Math.floor((invoiceDate.getMillis() - startDate.getMillis())/(2.628*Math.pow(10, 9)));
+		return this.getUnits()*(this.monthlyPayment + (this.totalCost - this.downPayment - (numOfMonths*this.monthlyPayment))
+				*this.interestRate);
 	}
 
 	@Override
