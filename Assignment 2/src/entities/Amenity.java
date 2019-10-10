@@ -8,6 +8,7 @@ public class Amenity extends Service {
 
 	private String name;
 	private double cost;
+	private String discountString = "";
 	
 	public Amenity(String productCode, String productType, int quantity, String name, double cost) {
 		super(productCode, productType, quantity);
@@ -17,7 +18,7 @@ public class Amenity extends Service {
 
 	public double computeSubtotal(ArrayList<Product> products) {
 		for(Product p:products) {
-			if(p instanceof LeaseAgreement) {
+			if(p.getProductType().equals("L")) {
 				return this.cost*.95*this.getQuantity();
 			}
 		}
@@ -47,6 +48,11 @@ public class Amenity extends Service {
 
 	@Override
 	public String toString() {
-		return String.format("%s %s %s $%s", this.getProductCode(), this.getProductType(), name, cost);
-	}	
+		return String.format("%s (%d units @ $%.2f/unit%s)", this.getName(), this.getQuantity(), this.getCost(), discountString);
+	}
+	
+	public void setDiscountString() {
+		discountString = " with 5% off";
+	}
+	
 }

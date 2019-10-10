@@ -26,6 +26,8 @@ public class Invoice {
 		if(product instanceof Amenity) {
 			for(Product p:products) {
 				if(p instanceof LeaseAgreement) {
+					Amenity a = (Amenity)product;
+					a.setDiscountString();
 					return ((Amenity) product).getCost() * .95 * ((Amenity) product).getQuantity();
 				}
 			}
@@ -35,8 +37,13 @@ public class Invoice {
 		else if(product instanceof ParkingPass) {
 			if(((ParkingPass) product).getAgreement() != null) {
 				if(((ParkingPass) product).getQuantity() < ((ParkingPass) product).getAgreement().getUnits()) {
+					ParkingPass pass = (ParkingPass)product;
+					pass.setWithFree(pass.getQuantity());
 					return 0;
 				}
+				ParkingPass pass = (ParkingPass)product;
+				Agreement a = (Agreement)(pass.getAgreement());
+				pass.setWithFree(a.getUnits());
 				return (((ParkingPass) product).getQuantity()-((ParkingPass) product).getAgreement().getUnits())
 						*((ParkingPass) product).getParkingFee();
 			}
@@ -62,14 +69,6 @@ public class Invoice {
 			return -1;
 		}
 	}
-	
-//	public double computeGrandtotal(ArrayList<Product> products) {
-//		double grandtotal = 0;
-//		for(Product p:products) {
-//			grandtotal += p.computeGrandtotal(this.customer, products, computeSubtotal(p));
-//		}
-//		return grandtotal;
-//	}
 
 	public String getInvoiceCode() {
 		return invoiceCode;

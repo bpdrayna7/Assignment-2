@@ -100,4 +100,15 @@ public class LeaseAgreement extends Agreement {
 		this.monthlyCost = monthlyCost;
 	}
 	
+	public String toString() {
+		return String.format("Lease Agreement @ %s", this.getAddress().getStreet());
+	}
+	
+	@Override
+	public String additionalString() {
+		return String.format("%-11s%s (%d units @ $%.2f/unit)\n", "", this.getStartDate(), 
+				this.getUnits(), this.monthlyCost);
+	}
+	
+	
 }
