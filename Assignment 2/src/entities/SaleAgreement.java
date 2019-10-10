@@ -106,4 +106,15 @@ public class SaleAgreement extends Agreement {
 		this.interestRate = interestRate;
 	}
 
+	@Override
+	public String toString() {
+		return String.format("Sale Agreement @ %s", this.getAddress().getStreet());
+	}
+	
+	@Override
+	public String additionalString() {
+		return String.format("%-11s%d units @ $%.2f monthly, $%d interest payment/unit\n", "", this.getUnits(),
+				this.monthlyPayment, (int)(this.interestRate*this.monthlyPayment));
+	}
+	
 }

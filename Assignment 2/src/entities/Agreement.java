@@ -59,4 +59,9 @@ public class Agreement implements Product{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	public String additionalString() {
+		return "";
+	}
+
 }

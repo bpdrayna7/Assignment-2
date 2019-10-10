@@ -8,6 +8,7 @@ public class ParkingPass extends Service {
 
 	private double parkingFee;
 	private Agreement agreement;
+	private String withFree = "";
 	
 	public ParkingPass(String productCode, String productType, int quantity, double parkingFee, Agreement agreement) {
 		super(productCode, productType, quantity);
@@ -57,7 +58,22 @@ public class ParkingPass extends Service {
 
 	@Override
 	public String toString() {
-		return String.format("%s %s $%s", this.getProductCode(), this.getProductType(), parkingFee);
+		return String.format("Parking Pass%s (%d units @ $%.2f%s)", this.agreementString(), 
+				this.getQuantity(), this.getParkingFee(), withFree);
 	}
+	
+	public void setWithFree(int num) {
+		withFree = " with " + num + " free";
+	}
+	
+	public String agreementString() {
+		if(this.getAgreement() != null) {
+			return " " + this.getAgreement().getProductCode();
+		}
+		else {
+			return "";
+		}
+	}
+	
 	
 }

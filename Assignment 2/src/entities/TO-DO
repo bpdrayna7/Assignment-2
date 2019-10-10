@@ -1,8 +1,4 @@
-Add methods for computing subtotal, grand total, tax to each Product subclass
-Add methods for computing invoice total to Invoice class
-
-ConsoleWriter class - format invoice report outputs
-Finish InvoiceReport driver (add ConsoleWriter object)
+Fix special LeaseAgreement case
 
 Make test case
 
