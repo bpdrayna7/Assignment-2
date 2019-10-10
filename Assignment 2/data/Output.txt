@@ -7,4 +7,100 @@ INV005   Microsoft [Low Income]                   Campos,  Pablo       $      50
 =========================================================================================================================================
 Grand Total                                                            $    13237.82 $    101.50 $    549.63 $  -1385.00 $      12503.95
 
+Individual Invoice Detail Reports
+================================
+Invoice INV001
+============================
+Realtor: Free,  Gavin
+Customer Info:
+ Jones Industries(C001)
+ [General]
+ Jones,  Michael
+ 1224 New Street
+ Woodbury, MN 55129 USA
+-------------------------------------------
+Code       Item                                                                           Subtotal              Tax            Total
+tt8y       Lease Agreement @ 122 S Street                                         $        4506.00 $         270.36 $        4776.36
+           2018-02-02 (12 units @ $375.50/unit)
+88yy       Parking Pass tt8y (20 units @ $35.00 with 12 free)                     $         280.00 $          11.20 $         291.20
+989i       Modem (3 units @ $10.99/unit with 5% off)                              $          31.32 $           1.25 $          32.57
+                                                                                  ==================================================
+SUBTOTALS                                                                         $        4817.32 $         282.81 $        5100.13
+TOTAL                                                                                                               $        5100.13
+                Thank you for your purchase!
 
+Invoice INV002
+============================
+Realtor: Crouch,  Peter
+Customer Info:
+ Jackson Development(C002)
+ [Low Income]
+ Ramirez,  Christian
+ 6767 Park Place
+ New York, NY 33770 USA
+-------------------------------------------
+Code       Item                                                                           Subtotal              Tax            Total
+77ff       Sale Agreement @ 4401 East Ave.                                        $        3350.00 $           0.00 $        3350.00
+           1 units @ $1250.00 monthly, $37 interest payment/unit
+000a       Parking Pass 77ff (1 units @ $40.50 with 1 free)                       $           0.00 $           0.00 $           0.00
+                                                                                  ==================================================
+SUBTOTALS                                                                         $        3350.00 $           0.00 $        3350.00
+DISCOUNT (10% LOW INCOME + $1000 HOUSING CREDIT)                                                                    $       -1335.00
+ADDITIONAL FEE (LOW INCOME)                                                                                         $          50.75
+TOTAL                                                                                                               $        2065.75
+                Thank you for your purchase!
+
+Invoice INV003
+============================
+Realtor: Fox,  Jack
+Customer Info:
+ Tennis Tools(C003)
+ [General]
+ Towns Sr.,  Karl-Anthony
+ 1240 21st Street
+ Flagstaff, AZ 56678 USA
+-------------------------------------------
+Code       Item                                                                           Subtotal              Tax            Total
+t6t9       Parking Pass (4 units @ $57.00)                                        $         228.00 $           9.12 $         237.12
+                                                                                  ==================================================
+SUBTOTALS                                                                         $         228.00 $           9.12 $         237.12
+TOTAL                                                                                                               $         237.12
+                Thank you for your purchase!
+
+Invoice INV004
+============================
+Realtor: Ramirez,  Christian
+Customer Info:
+ Stonebridge(C004)
+ [General]
+ Fox,  Jack
+ 5400 West Broadway Way
+ Denver, CO 77822 USA
+-------------------------------------------
+Code       Item                                                                           Subtotal              Tax            Total
+70oo       Lease Agreement @ 1600 Fun Place                                       $        4200.00 $         252.00 $        4452.00
+           2016-01-25 (6 units @ $700.00/unit)
+8jjj       Desk (10 units @ $15.00/unit with 5% off)                              $         142.50 $           5.70 $         148.20
+                                                                                  ==================================================
+SUBTOTALS                                                                         $        4342.50 $         257.70 $        4600.20
+TOTAL                                                                                                               $        4600.20
+                Thank you for your purchase!
+
+Invoice INV005
+============================
+Realtor: Campos,  Pablo
+Customer Info:
+ Microsoft(C005)
+ [Low Income]
+ Free,  Gavin
+ 7777 Innovation Place
+ Seattle, WA 92920 USA
+-------------------------------------------
+Code       Item                                                                           Subtotal              Tax            Total
+909j       Bed Frame (10 units @ $50.00/unit)                                     $         500.00 $           0.00 $         500.00
+                                                                                  ==================================================
+SUBTOTALS                                                                         $         500.00 $           0.00 $         500.00
+DISCOUNT (10% LOW INCOME)                                                                                           $         -50.00
+ADDITIONAL FEE (LOW INCOME)                                                                                         $          50.75
+TOTAL                                                                                                               $         500.75
+                Thank you for your purchase!
