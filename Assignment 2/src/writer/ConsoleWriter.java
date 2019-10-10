@@ -84,7 +84,6 @@ public class ConsoleWriter {
 			detailedReports.append(String.format("%-82s==================================================\n", ""));
 			detailedReports.append(String.format("%-81s $%15.2f $%15.2f $%15.2f\n", "SUBTOTALS", subtotalSubtotal, taxSubtotal, totalSubtotal));
 			double changes = 0;
-			//discount + housing credit
 			if(i.getCustomer() instanceof LowIncome) {
 				if(i.getCustomer().getCredit(i.getProducts()) == 0) {
 					detailedReports.append(String.format("%-115s $%15.2f\n", "DISCOUNT (10% LOW INCOME)", (i.getCustomer().getDiscount(subtotal))*-1));
