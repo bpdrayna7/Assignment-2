@@ -1,27 +1,17 @@
 package reports;
 
 import java.util.ArrayList;
-
-import com.ceg.ext.InvoiceData;
-
 import entities.Invoice;
 import reader.DBReader;
 import writer.ConsoleWriter;
-import java.sql.*;
 
 public class InvoiceReport {
 
-	public static void main(String[] args) {
-
-		//Check all add product methods
-		//Check all invoice methods and add to invoice methods
-		
-		
-		
+	public static void main(String[] args) {		
 		
 		//FlatFileReader object
-//		DBReader reader = new DBReader();
-//		ArrayList<Invoice> invoices = reader.readInvoice();
+		DBReader reader = new DBReader();
+		ArrayList<Invoice> invoices = reader.readInvoice();
 		
 		//ConsoleWriter object
 //		ConsoleWriter writer = new ConsoleWriter();

@@ -17,7 +17,7 @@ public class InvoiceData {
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://cse.unl.edu:3306/rhruby", "rhruby", "Pack5496");
+			conn = DriverManager.getConnection("jdbc:mysql://cse.unl.edu:3306/rhruby", "rhruby", "");
 		}
 		catch(ClassNotFoundException e) {
 			System.err.println(e);
@@ -219,7 +219,6 @@ public class InvoiceData {
 		Connection conn = createConnection();
 		PreparedStatement ps = null;
 		String query = null;
-		ResultSet rs = null;
 		
 		try {
 			
@@ -625,7 +624,7 @@ public class InvoiceData {
 			int personId = rs.getInt("personId");
 			
 			//Gets customerId for this customer
-			query = "SELECT customerId FROM Customer WERE customerCode = ?";
+			query = "SELECT customerId FROM Customer WHERE customerCode = ?";
 			ps = conn.prepareStatement(query);
 			ps.setString(1, customerCode);
 			rs = ps.executeQuery();
