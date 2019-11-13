@@ -24,6 +24,7 @@ public class Person {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
+		emails = new ArrayList<String>();
 	}
 	
 	public String toString() {

@@ -11,11 +11,11 @@ public class InvoiceReport {
 		
 		//FlatFileReader object
 		DBReader reader = new DBReader();
-		ArrayList<Invoice> invoices = reader.readInvoice();
+		ArrayList<Invoice> invoices = reader.getInvoices();
 		
 		//ConsoleWriter object
-//		ConsoleWriter writer = new ConsoleWriter();
-//		writer.writeInvoice(invoices);
+		ConsoleWriter writer = new ConsoleWriter();
+		writer.writeInvoice(invoices);
 			//Format output of invoices into general invoice report
 			//For-each loop (for each invoice) that outputs detailed invoice report
 

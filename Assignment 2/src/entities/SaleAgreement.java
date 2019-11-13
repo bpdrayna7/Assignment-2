@@ -46,7 +46,7 @@ public class SaleAgreement extends Agreement {
 	
 	//Used Strings to display DateTime attribute but added a converter for possible later use
 	public DateTime dateTimeConverter(String input) {
-		final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm");
+		final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd");
 		return DATE_TIME_FORMATTER.parseDateTime(input);
 	}
 	

@@ -19,6 +19,7 @@ public class ParkingPass extends Service {
 	public ParkingPass(String productCode, String productType, int quantity, double parkingFee) {
 		super(productCode, productType, quantity);
 		this.parkingFee = parkingFee;
+		agreement = null;
 	}
 	
 	@Override

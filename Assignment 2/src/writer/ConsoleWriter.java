@@ -46,8 +46,8 @@ public class ConsoleWriter {
 			feesGrandTotal += fees;
 			discountGrandTotal += discount;
 			grandtotal += total;
-			//Writes detailed reports
 			
+			//Writes detailed reports
 			
 			detailedReports.append(String.format("\nInvoice %s\n============================\n", i.getInvoiceCode()));
 			detailedReports.append(String.format("Realtor: %s\nCustomer Info:\n %s", i.getRealtor().toString(), i.getCustomer().toDetailedString()));
