@@ -17,7 +17,7 @@ public class InvoiceData {
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://cse.unl.edu:3306/rhruby", "rhruby", "Pack5496");
+			conn = DriverManager.getConnection("jdbc:mysql://cse.unl.edu:3306/rhruby", "rhruby", "");
 		}
 		catch(ClassNotFoundException e) {
 			System.err.println(e);
