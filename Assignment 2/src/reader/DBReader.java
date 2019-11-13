@@ -42,7 +42,6 @@ public class DBReader {
 			stmt = conn.createStatement();
 			query = "SELECT * FROM Invoice";
 			rs = stmt.executeQuery(query);
-//			rs.next();
 			while(rs.next()) {
 				int invoiceId = rs.getInt("invoiceId");
 				currentInvoice = invoiceId;
@@ -212,7 +211,6 @@ public class DBReader {
 			query = "SELECT * FROM InvoiceProduct WHERE invoiceId = " + invoiceId;
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
-//			rs.next()
 			while(rs.next()) {
 				int productId = rs.getInt("productId");
 				int quantity = rs.getInt("quantity");
@@ -463,7 +461,6 @@ public class DBReader {
 			query = "SELECT emailAddress FROM Email WHERE personId = " + personId;
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
-//			rs.next()
 			while(rs.next()) {
 				//Adds all emails into ArrayList
 				String email = rs.getString("emailAddress");
