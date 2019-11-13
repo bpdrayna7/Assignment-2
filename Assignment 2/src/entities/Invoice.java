@@ -1,5 +1,6 @@
 package entities;
 
+import java.time.YearMonth;
 import java.util.ArrayList;
 
 import org.joda.time.DateTime;
@@ -49,21 +50,38 @@ public class Invoice {
 			}
 			return ((ParkingPass) product).getQuantity()*((ParkingPass) product).getParkingFee();
 		}
-		
-		//might not work if start/end date month is same as invoice but not same year
 		else if(product instanceof LeaseAgreement) {
-			if(((LeaseAgreement) product).dateTimeConverter(((LeaseAgreement) product).getStartDate()).monthOfYear() == 
-					this.invoiceDate.monthOfYear()) {
-				return ((LeaseAgreement) product).getMonthlyCost()*((LeaseAgreement) product).getUnits() + ((LeaseAgreement) product).getDeposit();
+			DateTime startDate = LeaseAgreement.dateTimeConverter(((LeaseAgreement)product).getStartDate());
+			DateTime endDate = LeaseAgreement.dateTimeConverter(((LeaseAgreement)product).getEndDate());
+			if(invoiceDate.getMonthOfYear() == startDate.getMonthOfYear()) {
+				YearMonth startMonth = YearMonth.of(startDate.getYear(), startDate.getMonthOfYear());
+				int daysInMonth = startMonth.lengthOfMonth();
+				return ((LeaseAgreement) product).getUnits()*((((LeaseAgreement) product).getMonthlyCost()+((daysInMonth-startDate.getDayOfMonth())/daysInMonth))
+						*((LeaseAgreement) product).getMonthlyCost()+((LeaseAgreement) product).getDeposit());
 			}
-			else if(((LeaseAgreement) product).dateTimeConverter(((LeaseAgreement) product).getEndDate()).monthOfYear() == 
-					this.invoiceDate.monthOfYear()) {
-				return ((LeaseAgreement) product).getMonthlyCost()*((LeaseAgreement) product).getUnits() - ((LeaseAgreement) product).getDeposit();
+			else if(invoiceDate.getMonthOfYear() == endDate.getMonthOfYear()) {
+				YearMonth endMonth = YearMonth.of(endDate.getYear(), endDate.getMonthOfYear());
+				int daysInMonth = endMonth.lengthOfMonth();
+				return ((LeaseAgreement) product).getUnits()*(((LeaseAgreement) product).getMonthlyCost()+(((LeaseAgreement) product).getMonthlyCost()
+						*(endDate.getDayOfMonth()/daysInMonth)-((LeaseAgreement) product).getDeposit()));
 			}
-			return ((LeaseAgreement) product).getMonthlyCost()*((LeaseAgreement) product).getUnits();
+			else {
+				return ((LeaseAgreement) product).getUnits()*((LeaseAgreement)product).getMonthlyCost();
+			}
 		}
 		else if (product instanceof SaleAgreement) {
-			return ((SaleAgreement) product).computeSubtotal(this.invoiceDate);
+			double subtotal = 0;
+			DateTime startDate = ((SaleAgreement)product).dateTimeConverter(((SaleAgreement)product).getDateTime());
+			double numOfMonths = Math.floor((invoiceDate.getMillis()-startDate.getMillis())/(2.628*Math.pow(10, 9)));
+			if(startDate.getMonthOfYear() == invoiceDate.getMonthOfYear()) {
+				return ((SaleAgreement) product).getUnits()*(((SaleAgreement) product).getMonthlyPayment()+((SaleAgreement) product).getDownPayment() +
+						(((SaleAgreement) product).getTotalCost()-((SaleAgreement) product).getDownPayment())-((SaleAgreement) product).getMonthlyPayment())
+						*((SaleAgreement) product).getInterestRate();
+			}
+			else {
+				return ((SaleAgreement) product).getUnits()*(((SaleAgreement) product).getTotalCost()-((SaleAgreement) product).getDownPayment()-
+						(numOfMonths*((SaleAgreement) product).getMonthlyPayment())*((SaleAgreement) product).getInterestRate());
+			}
 		}
 		else {
 			return -1;
