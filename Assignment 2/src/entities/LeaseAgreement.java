@@ -1,5 +1,6 @@
 package entities;
 
+import java.time.YearMonth;
 import java.util.ArrayList;
 
 import org.joda.time.DateTime;
@@ -29,11 +30,15 @@ public class LeaseAgreement extends Agreement {
 	public double computeSubtotal(DateTime invoiceDate) {
 		DateTime startDate = dateTimeConverter(this.startDate);
 		DateTime endDate = dateTimeConverter(this.endDate);
-		if(invoiceDate.monthOfYear() == endDate.monthOfYear()) {
-			return this.monthlyCost*this.getUnits() - this.deposit;
+		if(invoiceDate.getMonthOfYear() == endDate.getMonthOfYear()) {
+			YearMonth endMonth = YearMonth.of(endDate.getYear(), endDate.getMonthOfYear());
+			int daysInMonth = endMonth.lengthOfMonth();
+			return this.getUnits()*(this.monthlyCost+(this.monthlyCost*(endDate.getDayOfMonth()/daysInMonth)+this.deposit));
 		}
-		else if(invoiceDate.monthOfYear() == startDate.monthOfYear()) {
-			return this.monthlyCost*this.getUnits() + this.deposit;
+		else if(invoiceDate.getMonthOfYear() == startDate.getMonthOfYear()) {
+			YearMonth startMonth = YearMonth.of(startDate.getYear(), startDate.getMonthOfYear());
+			int daysInMonth = startMonth.lengthOfMonth();
+			return this.getUnits()*(this.monthlyCost*(((daysInMonth-startDate.getDayOfMonth())/daysInMonth))-this.deposit);
 		}
 		else {
 			return this.monthlyCost*this.getUnits();

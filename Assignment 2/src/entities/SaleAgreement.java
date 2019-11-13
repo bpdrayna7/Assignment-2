@@ -34,8 +34,14 @@ public class SaleAgreement extends Agreement {
 		double subtotal = 0;
 		DateTime startDate = dateTimeConverter(this.dateTime);
 		double numOfMonths = Math.floor((invoiceDate.getMillis() - startDate.getMillis())/(2.628*Math.pow(10, 9)));
-		return this.getUnits()*(this.monthlyPayment + (this.totalCost - this.downPayment - (numOfMonths*this.monthlyPayment))
-				*this.interestRate);
+		if(startDate.getMonthOfYear() == invoiceDate.getMonthOfYear()) {
+			return this.getUnits()*((this.monthlyPayment + this.downPayment + (this.totalCost - this.downPayment - this.monthlyPayment))
+					*this.interestRate);
+		}
+		else {
+			return this.getUnits()*(this.monthlyPayment + (this.totalCost - this.downPayment - (numOfMonths*this.monthlyPayment))
+					*this.interestRate);
+		}
 	}
 
 	@Override
