@@ -42,10 +42,10 @@ public class InvoiceList implements Iterable<Invoice> {
 	}
 	
 	class IteratorClass implements Iterator<Invoice>{
-		private InvoiceNode<Invoice> currentNode = head;
+		int index = 0;
 		@Override
 		public boolean hasNext() {
-			if(currentNode.getNext() != null) {
+			if(get(index).getNext() != null) {
 				return true;
 			}
 			else {
@@ -56,8 +56,8 @@ public class InvoiceList implements Iterable<Invoice> {
 		@Override
 		public Invoice next() {
 			if(hasNext()) {
-				Invoice invoice = currentNode.getValue(); 
-				currentNode = currentNode.getNext();
+				Invoice invoice = get(index).getValue(); 
+				index = index+1;
 				return invoice;
 			}
 			else {
@@ -108,7 +108,24 @@ public class InvoiceList implements Iterable<Invoice> {
 		}
 	}
 	
-	//Method for removing items at index
+	//Method to get node at index
+	public InvoiceNode<Invoice> get(int index) {
+		if(index<0 || index>size-1) {
+			throw new IndexOutOfBoundsException();
+		}
+		else if(index == 0) {
+			return head;
+		}
+		else {
+			InvoiceNode<Invoice> current = head;
+			for(int i=0; i<index; i++) {
+				current = current.getNext();
+			}
+			return current;
+		}
+	}
+	
+	//Method for removing node at index
 	public void remove(int index) {
 		if(index<0 || index>size-1) {
 			throw new IndexOutOfBoundsException();

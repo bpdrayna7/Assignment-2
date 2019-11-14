@@ -23,16 +23,16 @@ public class Invoice {
 		this.products = products;
 	}
 	
-	public double computeSubtotal(Product product, ArrayList<Product> products) {
+	public double computeProductSubtotal(Product product, ArrayList<Product> products) {
 		if(product instanceof Amenity) {
 			for(Product p:products) {
 				if(p instanceof LeaseAgreement) {
 					Amenity a = (Amenity)product;
 					a.setDiscountString();
-					return ((Amenity) product).getCost() * .95 * ((Amenity) product).getQuantity();
+					return ((Amenity) product).computeSubtotal(products);
 				}
 			}
-			return ((Amenity) product).getCost() * ((Amenity) product).getQuantity();
+			return ((Amenity) product).computeSubtotal(products);
 		}
 		
 		else if(product instanceof ParkingPass) {
@@ -40,48 +40,20 @@ public class Invoice {
 				if(((ParkingPass) product).getQuantity() < ((ParkingPass) product).getAgreement().getUnits()) {
 					ParkingPass pass = (ParkingPass)product;
 					pass.setWithFree(pass.getQuantity());
-					return 0;
 				}
-				ParkingPass pass = (ParkingPass)product;
-				Agreement a = (Agreement)(pass.getAgreement());
-				pass.setWithFree(a.getUnits());
-				return (((ParkingPass) product).getQuantity()-((ParkingPass) product).getAgreement().getUnits())
-						*((ParkingPass) product).getParkingFee();
+				else {
+					ParkingPass pass = (ParkingPass)product;
+					Agreement a = (Agreement)(pass.getAgreement());
+					pass.setWithFree(a.getUnits());
+				}
 			}
-			return ((ParkingPass) product).getQuantity()*((ParkingPass) product).getParkingFee();
+			return ((ParkingPass) product).computeSubtotal();
 		}
 		else if(product instanceof LeaseAgreement) {
-			DateTime startDate = LeaseAgreement.dateTimeConverter(((LeaseAgreement)product).getStartDate());
-			DateTime endDate = LeaseAgreement.dateTimeConverter(((LeaseAgreement)product).getEndDate());
-			if(invoiceDate.getMonthOfYear() == startDate.getMonthOfYear()) {
-				YearMonth startMonth = YearMonth.of(startDate.getYear(), startDate.getMonthOfYear());
-				int daysInMonth = startMonth.lengthOfMonth();
-				return ((LeaseAgreement) product).getUnits()*((((LeaseAgreement) product).getMonthlyCost()+((daysInMonth-startDate.getDayOfMonth())/daysInMonth))
-						*((LeaseAgreement) product).getMonthlyCost()+((LeaseAgreement) product).getDeposit());
-			}
-			else if(invoiceDate.getMonthOfYear() == endDate.getMonthOfYear()) {
-				YearMonth endMonth = YearMonth.of(endDate.getYear(), endDate.getMonthOfYear());
-				int daysInMonth = endMonth.lengthOfMonth();
-				return ((LeaseAgreement) product).getUnits()*(((LeaseAgreement) product).getMonthlyCost()+(((LeaseAgreement) product).getMonthlyCost()
-						*(endDate.getDayOfMonth()/daysInMonth)-((LeaseAgreement) product).getDeposit()));
-			}
-			else {
-				return ((LeaseAgreement) product).getUnits()*((LeaseAgreement)product).getMonthlyCost();
-			}
+			return ((LeaseAgreement)product).computeSubtotal(invoiceDate);
 		}
 		else if (product instanceof SaleAgreement) {
-			double subtotal = 0;
-			DateTime startDate = SaleAgreement.dateTimeConverter(((SaleAgreement)product).getDateTime());
-			double numOfMonths = Math.floor((invoiceDate.getMillis()-startDate.getMillis())/(2.628*Math.pow(10, 9)));
-			if(startDate.getMonthOfYear() == invoiceDate.getMonthOfYear()) {
-				return ((SaleAgreement) product).getUnits()*(((SaleAgreement) product).getMonthlyPayment()+((SaleAgreement) product).getDownPayment() +
-						(((SaleAgreement) product).getTotalCost()-((SaleAgreement) product).getDownPayment())-((SaleAgreement) product).getMonthlyPayment())
-						*((SaleAgreement) product).getInterestRate();
-			}
-			else {
-				return ((SaleAgreement) product).getUnits()*(((SaleAgreement) product).getTotalCost()-((SaleAgreement) product).getDownPayment()-
-						(numOfMonths*((SaleAgreement) product).getMonthlyPayment())*((SaleAgreement) product).getInterestRate());
-			}
+			return ((SaleAgreement)product).computeSubtotal(invoiceDate);
 		}
 		else {
 			return -1;
@@ -92,8 +64,8 @@ public class Invoice {
 		double subtotal = 0;
 		double taxTotal = 0;
 		for(Product p:this.getProducts()) {
-			subtotal += computeSubtotal(p, this.getProducts());
-			taxTotal += computeSubtotal(p, this.getProducts())*p.getTax();
+			subtotal += computeProductSubtotal(p, this.getProducts());
+			taxTotal += computeProductSubtotal(p, this.getProducts())*p.getTax();
 		}
 		taxTotal *= this.getCustomer().getTax();
 		double fees = this.getCustomer().getAdditionalFee();

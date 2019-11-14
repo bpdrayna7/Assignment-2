@@ -22,6 +22,7 @@ public class InvoiceReport {
 		for(Invoice i: invoices) {
 			invoiceList.add(i);
 		}
+
 		
 		//ConsoleWriter object
 		ConsoleWriter writer = new ConsoleWriter();

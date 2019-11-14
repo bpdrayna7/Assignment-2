@@ -26,13 +26,15 @@ public class ConsoleWriter {
 		double discountGrandTotal = 0;
 		double grandtotal = 0;
 		
-		for(Invoice i:list) {
-			//Writes summary
+		//Writes summary
+		for(int j=0; j<list.getSize(); j++) {
+			Invoice i = list.get(j).getValue();
+			
 			double subtotal = 0;
 			double taxTotal = 0;
 			for(Product p: i.getProducts()) {
-				subtotal += i.computeSubtotal(p, i.getProducts());
-				taxTotal += i.computeSubtotal(p, i.getProducts())*p.getTax();
+				subtotal += i.computeProductSubtotal(p, i.getProducts());
+				taxTotal += i.computeProductSubtotal(p, i.getProducts())*p.getTax();
 			}
 			taxTotal *= i.getCustomer().getTax();
 			double fees = i.getCustomer().getAdditionalFee();
@@ -60,15 +62,7 @@ public class ConsoleWriter {
 			double totalSubtotal = 0;
 			
 			for(Product p : i.getProducts()) {
-				double productSubtotal = 0;
-				
-				if(p instanceof Amenity) {
-					Amenity amenity = (Amenity)p;
-					productSubtotal = amenity.computeSubtotal(i.getProducts());
-				}
-				else {
-					productSubtotal = p.computeSubtotal(i.getInvoiceDate());
-				}
+				double productSubtotal = i.computeProductSubtotal(p, i.getProducts());
 				
 				detailedReports.append(String.format("%-10s %-70s $%15.2f $%15.2f $%15.2f\n", p.getProductCode(), p.toString(), productSubtotal,
 						i.getCustomer().getTax()*productSubtotal*p.getTax(), productSubtotal + i.getCustomer().getTax()*productSubtotal*p.getTax()));

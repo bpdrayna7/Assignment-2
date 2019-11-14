@@ -22,8 +22,7 @@ public class ParkingPass extends Service {
 		agreement = null;
 	}
 	
-	@Override
-	public double computeSubtotal(DateTime invoiceDate) {
+	public double computeSubtotal() {
 		int quantity = this.getQuantity();
 		if(this.agreement != null) {
 			if(quantity < this.agreement.getUnits()) {
