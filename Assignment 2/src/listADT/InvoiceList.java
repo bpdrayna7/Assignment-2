@@ -1,30 +1,30 @@
 package listADT;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class InvoiceList<T> implements Iterable<T> {
+import entities.Invoice;
+
+public class InvoiceList implements Iterable<Invoice> {
 
 	//Attributes
-	
-	private InvoiceNode<T> head;
+	private InvoiceNode<Invoice> head;
 	private int size;
-	//private Comparator<T> comp;  Comparator object
+	private TotalComparator comp;
 	
 	//Constructor
-	
-	public InvoiceList() { //Comparator<T> comp  in parameter list
+	public InvoiceList(TotalComparator comp) {
 		this.head = null;
 		this.size = 0;
-		//this.comp = comp;
+		this.comp = comp;
 	}
 	
 	//Methods
-	
-	public InvoiceNode<T> getHead() {
+	public InvoiceNode<Invoice> getHead() {
 		return head;
 	}
 
-	public void setHead(InvoiceNode<T> head) {
+	public void setHead(InvoiceNode<Invoice> head) {
 		this.head = head;
 	}
 
@@ -36,35 +36,94 @@ public class InvoiceList<T> implements Iterable<T> {
 		this.size = size;
 	}
 
-	//FINISH
 	@Override
-	public Iterator<T> iterator() {
-		return new IteratorClass<T>();
+	public Iterator<Invoice> iterator() {
+		return new IteratorClass();
 	}
 	
-	class IteratorClass<E> implements Iterator<T>{
-		int index = 0;
-		
-		
+	class IteratorClass implements Iterator<Invoice>{
+		private InvoiceNode<Invoice> currentNode = head;
 		@Override
 		public boolean hasNext() {
-			// TODO Auto-generated method stub
-			return false;
+			if(currentNode.getNext() != null) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 
 		@Override
-		public T next() {
-			// TODO
-			return null;
-			
+		public Invoice next() {
+			if(hasNext()) {
+				Invoice invoice = currentNode.getValue(); 
+				currentNode = currentNode.getNext();
+				return invoice;
+			}
+			else {
+				throw new NoSuchElementException();
+			}
 		}
-		
 	}
 	
-	
-	//Method for adding items of type T
-	public void add(T value) {
-		// TODO
+	//Method for adding items
+	public void add(Invoice item) {
+		if(head == null) {
+			head = new InvoiceNode<Invoice>(item);
+			size++;
+		}
+		else if(size == 1) {
+			if(comp.compare(head.getValue(), item) > 0) {
+				InvoiceNode<Invoice> next = head;
+				head = new InvoiceNode<Invoice>(item);
+				head.setNext(next);
+			}
+			else {
+				head.setNext(new InvoiceNode<Invoice>(item));
+			}
+			size++;
+		}
+		else {
+			if(comp.compare(head.getValue(), item) > 0) {
+				InvoiceNode<Invoice> next = head;
+				head = new InvoiceNode<Invoice>(item);
+				head.setNext(next);
+			}
+			else if(comp.compare(head.getNext().getValue(), item) > 0) {
+				InvoiceNode<Invoice> current = new InvoiceNode<Invoice>(item);
+				InvoiceNode<Invoice> next = head.getNext();
+				head.setNext(current);
+				current.setNext(next);
+			}
+			else {
+				InvoiceNode<Invoice> current = head;
+				while(comp.compare(current.getValue(), current.getNext().getValue()) < 0) {
+					current = current.getNext();
+				}
+				InvoiceNode<Invoice> next = current.getNext();
+				current.setNext(new InvoiceNode<Invoice>(item));
+				current.getNext().setNext(next);
+			}
+			size++;
+		}
 	}
 	
+	//Method for removing items at index
+	public void remove(int index) {
+		if(index<0 || index>size-1) {
+			throw new IndexOutOfBoundsException();
+		}
+		else if(index==0) {
+			head = null;
+			size--;
+		}
+		else {
+			InvoiceNode<Invoice> previous = head;
+			for(int i=0; i<index-1; i++) {
+				previous = previous.getNext();
+			}
+			previous.setNext(previous.getNext().getNext());
+			size--;
+		}
+	}
 }

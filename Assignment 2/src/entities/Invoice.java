@@ -87,6 +87,20 @@ public class Invoice {
 			return -1;
 		}
 	}
+	
+	public double computeTotal() {
+		double subtotal = 0;
+		double taxTotal = 0;
+		for(Product p:this.getProducts()) {
+			subtotal += computeSubtotal(p, this.getProducts());
+			taxTotal += computeSubtotal(p, this.getProducts())*p.getTax();
+		}
+		taxTotal *= this.getCustomer().getTax();
+		double fees = this.getCustomer().getAdditionalFee();
+		double discount = (this.getCustomer().getCredit(this.getProducts()) + this.getCustomer().getDiscount(subtotal))*-1;
+		double total = subtotal + fees + taxTotal + discount;
+		return total;
+	}
 
 	public String getInvoiceCode() {
 		return invoiceCode;
@@ -127,8 +141,4 @@ public class Invoice {
 	public void setProducts(ArrayList<Product> products) {
 		this.products = products;
 	}
-	
-	
-	
-	
 }

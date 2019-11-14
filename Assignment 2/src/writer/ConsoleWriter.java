@@ -10,9 +10,10 @@ import entities.LowIncome;
 import entities.ParkingPass;
 import entities.Product;
 import entities.SaleAgreement;
+import listADT.InvoiceList;
 
 public class ConsoleWriter {
-	public void writeInvoice(ArrayList<Invoice> invoices) {
+	public void writeInvoice(InvoiceList list) {
 		StringBuilder summary = new StringBuilder();
 		summary.append(String.format("%-8s %-40s %-20s %-13s %-11s %-11s %-11s %-14s\n", 
 				"Invoice", "Customer", "Realtor", "Subtotal", "Fees", "Taxes", "Discount", "Total"));
@@ -25,7 +26,7 @@ public class ConsoleWriter {
 		double discountGrandTotal = 0;
 		double grandtotal = 0;
 		
-		for(Invoice i:invoices) {
+		for(Invoice i:list) {
 			//Writes summary
 			double subtotal = 0;
 			double taxTotal = 0;
