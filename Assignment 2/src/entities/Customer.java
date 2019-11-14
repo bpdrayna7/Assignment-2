@@ -20,7 +20,7 @@ public abstract class Customer {
 			this.type = "Low Income";
 			break;
 		default:
-			this.type = null;
+			this.type = type;
 			break;
 		}
 		this.primaryContact = primaryContact;

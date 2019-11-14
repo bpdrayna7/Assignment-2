@@ -71,7 +71,7 @@ public class Invoice {
 		}
 		else if (product instanceof SaleAgreement) {
 			double subtotal = 0;
-			DateTime startDate = ((SaleAgreement)product).dateTimeConverter(((SaleAgreement)product).getDateTime());
+			DateTime startDate = SaleAgreement.dateTimeConverter(((SaleAgreement)product).getDateTime());
 			double numOfMonths = Math.floor((invoiceDate.getMillis()-startDate.getMillis())/(2.628*Math.pow(10, 9)));
 			if(startDate.getMonthOfYear() == invoiceDate.getMonthOfYear()) {
 				return ((SaleAgreement) product).getUnits()*(((SaleAgreement) product).getMonthlyPayment()+((SaleAgreement) product).getDownPayment() +

@@ -144,7 +144,7 @@ public class DBReader {
 			Address address = readAddress(addressId);
 			
 			//Creates Customer object depending on customer type
-			if(type.equals("G")) {
+			if(type.equals("G") || type.equals("General")) {
 				customer = new General(customerCode, type, person, name, address);
 			}
 			else {
